@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="index.css">
+    <title> Алиев | Умный дом </title>
+</head>
+<body>
+
+    <div class="page">
+
+        <header>
+            <img src="imgs/logo.png" alt="SMART HOME" class="logoimg" width="75" height="75">
+
+            <div class="headerlist" id="headerlist">
+                <a href="#">Сводка</a>
+                <a href="#">Устройства</a>
+                <a href="#">Сценарии</a>
+                <a href="#" id="burger">
+            <img src="imgs/icon_list_m.png" alt="BURGERKING" />
+            </a></div>
+
+        </header>
+
+        <div class="container">
+
+            <section class="info">
+                <h3 id="infoh">Главное</h3>
+                <div class="nestedcont">
+                <img src="imgs/bg@1x.png" id="infoimg" alt="SMART_HOME_BG" width="100%" height="331" />
+                <p id="hellotou">ПРИВЕТ, ХОЗЯИН!</p>
+                    <p id="isdooropened">Двери и окна закрыты, сигнализация включена.</p>
+                    <p id="athome">Дома</p>
+                    <p id="outside">За окном</p>
+                    <p id="_23">+23</p>
+                    <p id="_19">+19</p>
+                    <img src="imgs/cloud-drizzle.png" id="cloudcry" alt="CLOUDS_CRY">
+                </div>
+            </section>
+            <section class="scenarios"></section>
+
+        </div>
+
+        <div class="devices"></div>
+
+        <footer></footer>
+
+    </div>
+        <script>
+            list = document.getElementById("headerlist");
+            burger = document.getElementById("burger").addEventListener("click", function () {
+            if (list.className === "headerlist"){
+                list.className += " adaptheader";
+            }
+            else {
+                list.className = "headerlist";
+            }
+        });
+        </script>
+</body>
+</html>

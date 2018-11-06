@@ -1,0 +1,180 @@
+html,
+body,
+.page{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333333;
+}
+.page{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 1400px;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    flex: 1 0 auto;
+}
+.devices{
+    flex-basis: 140px;
+}
+.info,
+.scenarios{
+    flex-basis: 50%;
+}
+@media (max-width: 640px) {
+    .container{
+        flex-direction: column;
+    }
+    .scenarios{
+        flex: 1 0 auto;
+    }
+    .logoimg{
+        margin-left: 0 !important;
+        display: block;
+        float: left;
+    }
+    #infoh{
+        display: none;
+    }
+    header{
+        border: none !important;
+        position: relative;
+    }
+    #hellotou{
+        font-size: 16px !important;
+    }
+    #isdooropened{
+        font-size: 13px;
+        top: 30px !important;
+    }
+    .nestedcont{
+        display: inline-block;
+    }
+    #athome,#outside{
+        top: 65px !important;
+        font-size: 13px;
+    }
+    #_23,#_19{
+        font-size: 25px !important;
+        top: 70px !important;
+    }
+    #cloudcry{
+        top: 100px !important;
+        left: 155px !important;
+        width: 20px;
+    }
+    .headerlist a#burger{
+        display: block !important;
+        position: absolute;
+        top: 0;
+        right: 15px;
+        float: right;
+     }
+     .headerlist.adaptheader a:not(:last-child){
+        display: block !important;
+        font-size: 13px;
+        background-color: rgba(51,51,51,0.6);
+        text-transform: uppercase;
+        float: none;
+        clear: left;
+        margin: 2px auto !important;
+        padding: 10px 20px !important;
+        text-align: left;
+        /*width: 80%;*/
+    }
+     /*#headerlist{*/
+         /*text-align: center;*/ /* For centering div with float width
+          and margins set upped to auto. */
+     /*}*/
+   .headerlist a{
+        display: none !important;
+    }
+}
+header{
+    border-bottom: 1px solid #f0f0f0;
+}
+.headerlist a{
+    float: left;
+    display: block;
+    color: #aeaeae;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 20px;
+    padding-top: 30px;
+    text-align: center;
+}
+.headerlist a:hover{
+    color: #ffdf00;
+    cursor: pointer;
+}
+.logoimg{
+    margin-left: 30px;
+    float: left;
+}
+.info{
+    text-align: center;
+}
+.nestedcont{
+    position: relative;
+    width: 95%;
+    margin-left: auto;
+}
+#infoh{
+    text-align: left;
+    margin-left: 6%;
+}
+#hellotou{
+    position: absolute;
+    top: 0;
+    left: 20px;
+    font-size: 22px;
+    font-weight: bold;
+}
+#infoimg{
+    object-fit: cover;
+    border-radius: 20px;
+}
+#isdooropened{
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    white-space: normal;
+    text-align: left;
+}
+#athome,
+#outside{
+    position: absolute;
+    top: 85px;
+    color: #aeaeae;
+}
+#athome,
+#_23{
+    left: 20px;
+}
+#outside,
+#_19{
+    left: 110px;
+}
+#_23,#_19{
+    position: absolute;
+    top: 90px;
+    font-size: 34px;
+    font-weight: bold;
+}
+#cloudcry{
+    position: absolute;
+    top: 130px;
+    left: 175px;
+}
+#burger{
+    display: none;
+}
+/*::selection{*/
+    /*background-color: #333;*/
+    /*color: #fff;*/
+/*}*/  /*Custom trick,for changing the standard selection color*/
