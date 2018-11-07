@@ -26,6 +26,22 @@ body,
 .scenarios{
     flex-basis: 50%;
 }
+
+@media (max-width: 1210px) {
+    .smallpanel{
+        right: unset !important;
+    }
+    #smallpaneltemp,
+    #smallpanellight{
+        top: 200px !important;
+    }
+    #smallpaneltemp{
+        left: 15px;
+    }
+    #smallpanellight{
+        left: 210px;
+    }
+}
 @media (max-width: 640px) {
     .container{
         flex-direction: column;
@@ -54,6 +70,10 @@ body,
     }
     .nestedcont{
         display: inline-block;
+        height: calc(331px/1.25);
+    }
+    #infoimg{
+        height: 100%;
     }
     #athome,#outside{
         top: 65px !important;
@@ -76,23 +96,23 @@ body,
         float: right;
      }
      .headerlist.adaptheader a:not(:last-child){
-        display: block !important;
+        visibility: visible;
         font-size: 13px;
-        background-color: rgba(51,51,51,0.6);
         text-transform: uppercase;
         float: none;
         clear: left;
-        margin: 2px auto !important;
+        margin: 3px auto !important;
         padding: 10px 20px !important;
-        text-align: left;
-        /*width: 80%;*/
+        width: 75%;
     }
-     /*#headerlist{*/
-         /*text-align: center;*/ /* For centering div with float width
-          and margins set upped to auto. */
-     /*}*/
-   .headerlist a{
-        display: none !important;
+    .headerlist.adaptheader a:not(:last-child):hover{
+        background-color: rgba(51, 51, 51, 0.6);
+    }
+   .headerlist a:not(:last-child){
+       visibility: hidden;
+    }
+    #smallpaneltemp,#smallpanellight{
+        top: 140px !important;
     }
 }
 header{
@@ -104,9 +124,9 @@ header{
     color: #aeaeae;
     font-weight: bold;
     text-decoration: none;
-    margin-left: 20px;
-    padding-top: 30px;
+    margin: 30px 0 0 20px;
     text-align: center;
+    transition: all 250ms linear 0s,visibility 0s,padding-left 0s,margin-top 0s;
 }
 .headerlist a:hover{
     color: #ffdf00;
@@ -123,6 +143,7 @@ header{
     position: relative;
     width: 95%;
     margin-left: auto;
+    overflow: hidden;
 }
 #infoh{
     text-align: left;
@@ -136,6 +157,7 @@ header{
     font-weight: bold;
 }
 #infoimg{
+    width: 100%;
     object-fit: cover;
     border-radius: 20px;
 }
@@ -178,3 +200,37 @@ header{
     /*background-color: #333;*/
     /*color: #fff;*/
 /*}*/  /*Custom trick,for changing the standard selection color*/
+.smallpanel{
+    position: absolute;
+    /*left: 450px;*/
+    right: 20px;
+    background-color: #f7f7f7;
+    border-radius: 20px;
+    padding: 15px 15px 0;
+    text-align: left;
+    transition: top 250ms linear 0s;
+    width: 150px;
+    height: 100px;
+}
+#smallpaneltemp{
+    top: 20px;
+}
+#smallpanellight{
+    top: 150px;
+}
+#philcool,
+#xiaomi{
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 0;
+    margin-top: 20px;
+}
+#xiaomi{
+    margin-top: 10px !important;
+}
+#_16\:30,
+#_17\:00{
+    color: #858585;
+    font-size: 12px;
+    margin-top: 5px;
+}
