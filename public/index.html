@@ -61,7 +61,7 @@
                         <p id="airpurify">Xiaomi Mi Air Purifier 2S</p>
                         <p id="_20:00">Запланировано на 20:00.</p>
                     </div>
-                </div>
+                    </div>
             </section>
             <section class="scenarios"></section>
 
@@ -72,72 +72,6 @@
         <footer></footer>
 
     </div>
-        <script>
-            (function (window, document) {
-                'use strict';
-            const list = document.getElementById("headerlist");
-            const burger = document.getElementById("burger");
-            burger.addEventListener("click", function () {
-            if (list.className === "headerlist"){
-                list.className += " adaptheader";
-            }
-            else {
-                list.className = "headerlist";
-            }
-        });
-            // $("#burger").click(function () {
-            //     $("#headerlist").toggleClass(" adaptheader");
-            // });
-            const fwd = -210;
-            const temp = document.getElementById("smallpaneltemp");
-            const light = document.getElementById("smallpanellight");
-            const cam = document.getElementById("smallpanelcam");
-            const air = document.getElementById("smallpanelair");
-            const mql = window.matchMedia("(max-width: 1210px)");
-            mql.addListener(mediaquery);
-            function mediaquery(mql) {
-                if (mql.matches){
-                    temp.style.left = "15px";
-                    light.style.left = "210px";
-                    cam.style.left  = "405px";
-                    air.style.left = "600px";
-                    light.addEventListener("click",lightClick);
-                    cam.addEventListener("click",camClick);
-                }
-                else {
-                    light.removeEventListener("click",lightClick);
-                    cam.removeEventListener("click",camClick);
-                    temp.style.left = "unset";
-                    light.style.left = "unset";
-                    cam.style.left  = "unset";
-                    air.style.left = "unset";
-                    cam.addEventListener("wheel",function () {
-                       temp.style.top = fwd + 20 + "px";
-                        light.style.top = fwd + 150 + "px";
-                        this.style.top = fwd + 280 + "px";
-                        air.style.top = fwd + 410 + "px";
-                    });
-                    air.addEventListener("wheel",function () {
-                        temp.style.top = "20px";
-                        light.style.top = "150px";
-                        cam.style.top  = "280px";
-                        this.style.top = "410px";
-                    });}
-            }
-                function lightClick(){
-                    temp.style.left = "15px";
-                    this.style.left = "210px";
-                    cam.style.left  = "405px";
-                    air.style.left = "600px";
-                }
-                function camClick(){
-                    temp.style.left = fwd * 1.5 + 15 + "px";
-                    light.style.left = fwd * 1.5 + 210 + "px";
-                    this.style.left = fwd * 1.5 + 405 + "px";
-                    air.style.left = fwd * 1.5 + 600 + "px";
-                }
-                mediaquery(mql);
-            })(window, document);
-        </script>
+    <script src="index.js"></script>
 </body>
 </html>
