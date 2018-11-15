@@ -15,26 +15,32 @@
     const cam = document.getElementById("smallpanelcam");
     const air = document.getElementById("smallpanelair");
     const devs = [temp, light, cam, air];
-    const mql1210 = window.matchMedia("(max-width: 1210px)");
-    const mql1000 = window.matchMedia("(max-width: 1000px)");
-    mql1210.addListener(mediaquery);
-    function mediaquery() {
-        if (mql1210.matches){
+    const mqltransform = window.matchMedia("(max-width: 1210px)");
+    const mqlmediumscreen = window.matchMedia("(max-width: 1090px) AND (min-width: 641px)");
+    const mqlsmallscreen = window.matchMedia("(max-width: 551px)");
+    const mqlarr = [mqltransform, mqlmediumscreen, mqlsmallscreen];
+    mqlarr.forEach(vars=>{
+    vars.addListener(mediaquery);
+    });
+    mediaquery();
+    function mediaquery(){
+        if (mqltransform.matches){
             temp.style.left = "15px";
             light.style.left = "210px";
             cam.style.left  = "405px";
             air.style.left = "600px";
-            devs.forEach(function (target) {
+            devs.forEach(target=>{
                 target.addEventListener("touchstart", touchStart);
                 target.addEventListener("touchend", touchEnd);
+                target.removeEventListener("touchend", touchLast);
             });
         }
         else {
-            devs.forEach(function (target) {
+            devs.forEach(target=>{
                target.removeEventListener("touchstart", touchStart);
                target.removeEventListener("touchend", touchEnd);
             });
-            devs.forEach(function (target) {
+            devs.forEach(target=>{
                 target.addEventListener("wheel", function (direct) {
                 if (direct.deltaY > 0){
                 temp.style.top = fwd + 20 + "px";
@@ -64,7 +70,7 @@
         endposx = touchdirect.changedTouches[0].clientX;
         endposy = touchdirect.changedTouches[0].clientY;
         if (endposx > startposx && (Math.abs(startposx - endposx) > 25) && Math.abs(startposy - endposy) < 75){
-        devs.forEach(function (aim){
+        devs.forEach(aim=>{
         aim.removeEventListener("touchend", touchLast)});
         temp.style.left = "15px";
         light.style.left = "210px";
@@ -73,12 +79,12 @@
         }
         else if (endposx < startposx && (Math.abs(startposx - endposx) > 25)
         && Math.abs(startposy - endposy) < 75){
-        temp.style.left = fwd * 1.5 + 15 + "px";
-        light.style.left = fwd * 1.5 + 210 + "px";
-        cam.style.left = fwd * 1.5 + 405 + "px";
-        air.style.left = fwd * 1.5 + 600 + "px";
-        if (mql1000.matches){
-        devs.forEach(function (aim){
+        temp.style.left = fwd * 1.25 + 15 + "px";
+        light.style.left = fwd * 1.25 + 210 + "px";
+        cam.style.left = fwd * 1.25 + 405 + "px";
+        air.style.left = fwd * 1.25 + 600 + "px";
+        if (mqlmediumscreen.matches || mqlsmallscreen.matches){
+        devs.forEach(aim=>{
         aim.addEventListener("touchstart", touchStart);
         aim.addEventListener("touchend", touchLast)});
         }
@@ -91,7 +97,7 @@
         light.style.left = fwd * 2.5 + 210 + "px";
         cam.style.left = fwd * 2.5 + 405 + "px";
         air.style.left = fwd * 2.5 + 600 + "px";
-        devs.forEach(function (lastaim){
+        devs.forEach(lastaim=>{
         lastaim.addEventListener("touchstart", touchStart);
         lastaim.addEventListener("touchend", touchTheLast)});
         }
@@ -99,13 +105,12 @@
         function touchTheLast(){
         if (endposx > startposx && (Math.abs(startposx - endposx) > 25)
         && Math.abs(endposy - startposy) < 75){
-        temp.style.left = fwd * 1.5 + 15 + "px";
-        light.style.left = fwd * 1.5 + 210 + "px";
-        cam.style.left = fwd * 1.5 + 405 + "px";
-        air.style.left = fwd * 1.5 + 600 + "px";
-        devs.forEach(function (lastaim){
-        lastaim.addEventListener("touchend", touchLast);
-        lastaim.removeEventListener("touchend", touchTheLast)});
+        temp.style.left = fwd * 1.25 + 15 + "px";
+        light.style.left = fwd * 1.25 + 210 + "px";
+        cam.style.left = fwd * 1.25 + 405 + "px";
+        air.style.left = fwd * 1.25 + 600 + "px";
+        devs.forEach(finalaim=>{
+        finalaim.addEventListener("touchend", touchLast);
+        finalaim.removeEventListener("touchend", touchTheLast)});
         }
         }
-        mediaquery();
