@@ -1,3 +1,4 @@
+    window.onload=()=>{
     "use strict";
     const list = document.getElementById("headerlist");
     const burger = document.getElementById("burger");
@@ -114,3 +115,4 @@
         finalaim.removeEventListener("touchend", touchTheLast)});
         }
         }
+        };
