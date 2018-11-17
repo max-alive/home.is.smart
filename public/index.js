@@ -1,8 +1,8 @@
-    window.addEventListener("load",()=>{
+    window.onload = ()=>{
     "use strict";
     const list = document.getElementById("headerlist");
     const burger = document.getElementById("burger");
-    burger.addEventListener("click", function () {
+    burger.addEventListener("click",()=>{
         if (list.className === "headerlist"){
             list.className += " adaptheader";
         }
@@ -42,7 +42,7 @@
                target.removeEventListener("touchend", touchEnd);
             });
             devs.forEach(target=>{
-                target.addEventListener("wheel", function (direct) {
+                target.addEventListener("wheel",direct=>{
                 if (direct.deltaY > 0){
                 temp.style.top = fwd + 20 + "px";
                 light.style.top = fwd + 150 + "px";
@@ -70,7 +70,8 @@
         function touchEnd(touchdirect){
         endposx = touchdirect.changedTouches[0].clientX;
         endposy = touchdirect.changedTouches[0].clientY;
-        if (endposx > startposx && (Math.abs(startposx - endposx) > 25) && Math.abs(startposy - endposy) < 75){
+        if (endposx > startposx && (Math.abs(startposx - endposx) > 25)
+        && Math.abs(startposy - endposy) < 75){
         devs.forEach(aim=>{
         aim.removeEventListener("touchend", touchLast)});
         temp.style.left = "15px";
@@ -115,4 +116,4 @@
         finalaim.removeEventListener("touchend", touchTheLast)});
         }
         }
-        });
+        };
