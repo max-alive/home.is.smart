@@ -5,16 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="index.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="index.js"></script>
     <title> Алиев | Умный дом </title>
+    <link rel="icon" href="../assets/imgs/logoimg.png" type="image/png" sizes="16x16">
 </head>
 <body>
 
     <div class="page">
 
         <header>
-            <img src="../assets/imgs/security.svg" alt="SMART HOME"
-                 class="logoimg" width="80">
+            <img src="../assets/imgs/headerimg.png" alt="SMART HOME"
+                 class="logoimg" width="64">
 
             <div class="headerlist" id="headerlist">
                 <a href="#">Сводка</a>
@@ -63,15 +64,60 @@
                     </div>
                     </div>
             </section>
-            <section class="scenarios"></section>
+            <section class="scenarios">
+                <h3 id="favscenarios">Избранные сценарии</h3>
+                <div class="nestedscenarios">
+                <div class="favscenarios">
+                    <img src="../assets/imgs/icon_sun_2@1x.png" alt="Солнышко">
+                    <p class="favscenariostext">Выключить весь свет в доме и во дворе.</p>
+                </div>
+                <div class="favscenarios">
+                    <img src="../assets/imgs/icon_scheduled@1x.png" alt="Часики">
+                    </br>
+                    <p class="favscenariostext">Пора вставать!</br>8 утра!</p>
+                </div>
+                <div class="favscenarios">
+                    <img src="../assets/imgs/icon_sun_2@1x.png" alt="Солнышко">
+                    <p class="favscenariostext">Включить свет в коридоре.</p>
+                </div>
+                <div class="favscenarios">
+                    <img src="../assets/imgs/icon_temperature_2@1x.png" alt="Градусник">
+                    <p class="favscenariostext">Набрать горячую ванну.</p>
+                    <p class="favscenariosubtext">Начнётся в 18:00.</p>
+                </div>
+                <div class="favscenarios">
+                    <img src="../assets/imgs/icon_temperature_2@1x.png" alt="Градусник">
+                    <p class="favscenariostext">Сделать пол тёплым</br>во всей квартире.</p>
+                </div>
+                <div class="favscenarios">
+                    <img src="../assets/imgs/icons8-air-32.png" alt="Ветерок" width="24">
+                    <p class="favscenariostext">Проветрить спальню.</p>
+                </div>
+                <div class="favscenarios">
+                    <img src="../assets/imgs/breathable.png" alt="Караоке!">
+                    <p class="favscenariostext">Петь караоке.</p>
+                </div>
+                <div class="favscenarios">
+                    <img src="../assets/imgs/guitar.png" alt="Релакс!">
+                    <p class="favscenariostext">Проиграть релакс.<br/>музыку.</p>
+                </div>
+                <div class="favscenarios">
+                    <img src="../assets/imgs/icon.png" alt="Курочка">
+                    <p class="favscenariostext">Включить духовку.</p>
+                    </div>
+                <div class="favscenarios">
+                    <img src="../assets/imgs/soccer-ball-variant.png" alt="...">
+                    <p class="favscenariostext">Смотреть футбол.</p>
+                    <p class="favscenariosubtext">Матч в 22:00.</p>
+                </div>
+                </div>
 
+            </section>
         </div>
 
         <div class="devices"></div>
-
         <footer></footer>
 
     </div>
-    <script src="index.js"></script>
 </body>
 </html>
