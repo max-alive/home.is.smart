@@ -46,6 +46,7 @@ body,
         flex: 1 0 auto;
     }
     .logoimg{
+        width: 44px;
         margin-left: 20px !important;
         display: block;
         float: left;
@@ -114,9 +115,18 @@ body,
     h3#favscenarios{
         position: static !important;
     }
-    div.nestedscenarios{
-        margin: 0 !important;
+    div#nestedscenarios{
+        left: 0 !important;
         white-space: nowrap;
+    }
+    img#rightarrow,img#leftarrow{
+        display: none !important;
+    }
+    div.favscenarios{
+        visibility: visible !important;
+        opacity: 1 !important;
+        top: unset !important;
+        left: unset !important;
     }
 }
 header{
@@ -237,7 +247,7 @@ h3#infoh{
     font-size: 14px;
     font-weight: bold;
     margin-bottom: 0;
-    margin-top: 20px;
+    margin-top: 27px;
 }
 #xiaomi, #dlink, #airpurify{
     margin-top: 10px;
@@ -264,29 +274,58 @@ div.favscenarios{
     padding: 10px 0 0 15px;
     font-size: 14px;
     font-weight: bold;
-    transition: background-color 300ms linear 0s;
+    transition: all 300ms linear 0s,
+    visibility 300ms linear 350ms,
+    opacity 300ms linear 350ms;
     cursor: pointer;
     vertical-align: top;
     white-space: normal;
-    overflow: hidden;
+    overflow-y: hidden;
 }
 div.favscenarios:hover{
     background-color: #ffffff;
     box-shadow: 0 2px 6px 0 rgba(197, 186, 186, 0.5);
 }
-div.nestedscenarios{
+div#nestedscenarios{
     height: 335px;
-    margin-top: 55px;
-    margin-left: 25px;
+    position: absolute;
+    top: 55px;
+    left: 25px;
     font-size: 0;
-    -webkit-column-count: 1;
-    -moz-column-count: 1;
-    column-count: 1;
-    /*overflow-x: scroll;*/
+    overflow: hidden;
 }
 p.favscenariosubtext{
     font-size: 12px;
     font-weight: normal;
     color: #858585;
     margin-top: -10px;
+}
+div.favscenarios:nth-child(n+10){
+    position: absolute;
+    top: 0;
+    left: 700px;
+}
+img#leftarrow{
+    display: none;
+    position: absolute;
+    top: 22px;
+    right: 65px;
+    opacity: 0.33;
+    cursor: pointer;
+}
+img#rightarrow{
+    display: none;
+    position: absolute;
+    top: 22px;
+    right: 35px;
+    opacity: 1;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+    cursor: pointer;
+}
+div.favscenarios.favscenariosvision{
+    visibility: hidden;
 }

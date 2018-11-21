@@ -1,4 +1,4 @@
-    window.onload = ()=>{
+    window.onload = () =>{
     "use strict";
     const list = document.getElementById("headerlist");
     const burger = document.getElementById("burger");
@@ -115,5 +115,34 @@
         finalaim.addEventListener("touchend", touchLast);
         finalaim.removeEventListener("touchend", touchTheLast)});
         }
+        }
+        const favscenarios = document.getElementsByClassName("favscenarios");
+        const rightarrow = document.getElementById("rightarrow");
+        rightarrow.addEventListener("click",()=>{
+            for (let i = 0; i < 9; i++) {
+            favscenarios[i].style.visibility = "hidden";
+            favscenarios[i].style.opacity = "0";
+            }
+            for (let i = 9; i < favscenarios.length; i++){
+            favscenarios[i].style.left = "0px";
+            }
+            rightarrow.style.opacity = "0.33";
+            leftarrow.style.opacity = "1";
+        });
+        const leftarrow = document.getElementById("leftarrow");
+        leftarrow.addEventListener("click",()=>{
+        for (let i = 0; i < 9; i++) {
+        favscenarios[i].style.visibility = "visible";
+        favscenarios[i].style.opacity = "1";
+        }
+        for (let i = 9; i < favscenarios.length; i++){
+        favscenarios[i].style.left = "700px";
+        }
+        leftarrow.style.opacity = "0.33";
+        rightarrow.style.opacity = "1";
+        });
+        if (favscenarios.length >= 10){
+            rightarrow.style.display = "block";
+            leftarrow.style.display = "block";
         }
         };
