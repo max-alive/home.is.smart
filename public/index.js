@@ -20,11 +20,48 @@
     const mqlmediumscreen = window.matchMedia("(max-width: 1090px) AND (min-width: 641px)");
     const mqlsmallscreen = window.matchMedia("(max-width: 551px)");
     const mqlarr = [mqltransform, mqlmediumscreen, mqlsmallscreen];
-    mqlarr.forEach(vars=>{
-    vars.addListener(mediaquery);
-    });
-    mediaquery();
-    function mediaquery(){
+    const touchStart = touchdirect => {
+        startposx = touchdirect.touches[0].clientX;
+        startposy = touchdirect.touches[0].clientY;
+    };
+    const touchEnd = touchdirect => {
+        endposx = touchdirect.changedTouches[0].clientX;
+        endposy = touchdirect.changedTouches[0].clientY;
+        if (endposx > startposx && (Math.abs(startposx - endposx) > 25)
+        && Math.abs(startposy - endposy) < 75){
+        devs.forEach(aim=>{
+            aim.removeEventListener("touchend", touchLast)});
+            temp.style.left = "15px";
+            light.style.left = "210px";
+            cam.style.left  = "405px";
+            air.style.left = "600px";
+            }
+            else if (endposx < startposx && (Math.abs(startposx - endposx) > 25)
+                && Math.abs(startposy - endposy) < 75){
+                temp.style.left = fwd * 1.25 + 15 + "px";
+                light.style.left = fwd * 1.25 + 210 + "px";
+                cam.style.left = fwd * 1.25 + 405 + "px";
+                air.style.left = fwd * 1.25 + 600 + "px";
+                if (mqlmediumscreen.matches || mqlsmallscreen.matches){
+                    devs.forEach(aim=>{
+                        aim.addEventListener("touchstart", touchStart);
+                        aim.addEventListener("touchend", touchLast)});
+                }
+            }
+        };
+        const touchLast = () => {
+        if (endposx < startposx && (Math.abs(startposx - endposx) > 25)
+        && Math.abs(endposy - startposy) < 75){
+            temp.style.left = fwd * 2.5 + 15 + "px";
+            light.style.left = fwd * 2.5 + 210 + "px";
+            cam.style.left = fwd * 2.5 + 405 + "px";
+            air.style.left = fwd * 2.5 + 600 + "px";
+            devs.forEach(lastaim=>{
+            lastaim.addEventListener("touchstart", touchStart);
+            lastaim.addEventListener("touchend", touchTheLast)});
+            }
+        };
+        const mediaquery = () => {
         if (mqltransform.matches){
             temp.style.left = "15px";
             light.style.left = "210px";
@@ -61,50 +98,13 @@
         cam.style.left  = "unset";
         air.style.left = "unset";
         }
-        }
+        };
+        mediaquery();
+        mqlarr.forEach(vars=>{
+            vars.addListener(mediaquery);
+        });
         let startposx,startposy,endposx,endposy;
-        function touchStart(touchdirect) {
-        startposx = touchdirect.touches[0].clientX;
-        startposy = touchdirect.touches[0].clientY;
-        }
-        function touchEnd(touchdirect){
-        endposx = touchdirect.changedTouches[0].clientX;
-        endposy = touchdirect.changedTouches[0].clientY;
-        if (endposx > startposx && (Math.abs(startposx - endposx) > 25)
-        && Math.abs(startposy - endposy) < 75){
-        devs.forEach(aim=>{
-        aim.removeEventListener("touchend", touchLast)});
-        temp.style.left = "15px";
-        light.style.left = "210px";
-        cam.style.left  = "405px";
-        air.style.left = "600px";
-        }
-        else if (endposx < startposx && (Math.abs(startposx - endposx) > 25)
-        && Math.abs(startposy - endposy) < 75){
-        temp.style.left = fwd * 1.25 + 15 + "px";
-        light.style.left = fwd * 1.25 + 210 + "px";
-        cam.style.left = fwd * 1.25 + 405 + "px";
-        air.style.left = fwd * 1.25 + 600 + "px";
-        if (mqlmediumscreen.matches || mqlsmallscreen.matches){
-        devs.forEach(aim=>{
-        aim.addEventListener("touchstart", touchStart);
-        aim.addEventListener("touchend", touchLast)});
-        }
-        }
-        }
-        function touchLast(){
-        if (endposx < startposx && (Math.abs(startposx - endposx) > 25)
-        && Math.abs(endposy - startposy) < 75){
-        temp.style.left = fwd * 2.5 + 15 + "px";
-        light.style.left = fwd * 2.5 + 210 + "px";
-        cam.style.left = fwd * 2.5 + 405 + "px";
-        air.style.left = fwd * 2.5 + 600 + "px";
-        devs.forEach(lastaim=>{
-        lastaim.addEventListener("touchstart", touchStart);
-        lastaim.addEventListener("touchend", touchTheLast)});
-        }
-        }
-        function touchTheLast(){
+        const touchTheLast = () => {
         if (endposx > startposx && (Math.abs(startposx - endposx) > 25)
         && Math.abs(endposy - startposy) < 75){
         temp.style.left = fwd * 1.25 + 15 + "px";
@@ -115,19 +115,25 @@
         finalaim.addEventListener("touchend", touchLast);
         finalaim.removeEventListener("touchend", touchTheLast)});
         }
-        }
+        };
         const favscenarios = document.getElementsByClassName("favscenarios");
         const rightarrow = document.getElementById("rightarrow");
         rightarrow.addEventListener("click",()=>{
-            for (let i = 0; i < 9; i++) {
-            favscenarios[i].style.visibility = "hidden";
-            favscenarios[i].style.opacity = "0";
-            }
-            for (let i = 9; i < favscenarios.length; i++){
-            favscenarios[i].style.left = "0px";
-            }
-            rightarrow.style.opacity = "0.33";
-            leftarrow.style.opacity = "1";
+        for (let i = 0; i < 9; i++) {
+        favscenarios[i].style.visibility = "hidden";
+        favscenarios[i].style.opacity = "0";
+        }
+        for (let i = 9; i < favscenarios.length; i++){
+        favscenarios[i].style.left = "0px";
+        }
+        for (let i = 0; i < favscenarios.length; i++) {
+        favscenarios[i].style.transition = "all 300ms linear 0s," +
+        "left 300ms linear 350ms";
+        }
+        rightarrow.style.opacity = "0.33";
+        leftarrow.style.opacity = "1";
+        leftarrow.style.cursor = "pointer";
+        rightarrow.style.cursor = "unset";
         });
         const leftarrow = document.getElementById("leftarrow");
         leftarrow.addEventListener("click",()=>{
@@ -138,8 +144,14 @@
         for (let i = 9; i < favscenarios.length; i++){
         favscenarios[i].style.left = "700px";
         }
+        for (let i = 0; i < favscenarios.length; i++) {
+        favscenarios[i].style.transition = "all 300ms linear 0s," +
+        "visibility 300ms linear 350ms," + "opacity 300ms linear 350ms";
+        }
         leftarrow.style.opacity = "0.33";
         rightarrow.style.opacity = "1";
+        leftarrow.style.cursor = "unset";
+        rightarrow.style.cursor = "pointer";
         });
         if (favscenarios.length >= 10){
             rightarrow.style.display = "block";
