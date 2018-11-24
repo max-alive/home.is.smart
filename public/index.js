@@ -16,6 +16,8 @@
     const cam = document.getElementById("smallpanelcam");
     const air = document.getElementById("smallpanelair");
     const devs = [temp, light, cam, air];
+    const windowsize1340 = window.matchMedia("(max-width: 1339px)");
+    const windowsize910 = window.matchMedia("(max-width: 909px)");
     const mqltransform = window.matchMedia("(max-width: 1210px)");
     const mqlmediumscreen = window.matchMedia("(max-width: 1090px) AND (min-width: 641px)");
     const mqlsmallscreen = window.matchMedia("(max-width: 551px)");
@@ -118,43 +120,86 @@
         };
         const favscenarios = document.getElementsByClassName("favscenarios");
         const rightarrow = document.getElementById("rightarrow");
+        const leftarrow = document.getElementById("leftarrow");
+        if (favscenarios.length >= 10){
+            rightarrow.style.display = "block";
+            leftarrow.style.display = "block";
+        }
+        let isActive;
         rightarrow.addEventListener("click",()=>{
-        for (let i = 0; i < 9; i++) {
-        favscenarios[i].style.visibility = "hidden";
-        favscenarios[i].style.opacity = "0";
+        if (windowsize910.matches){
+        for (let i = 0; i < 3; i++) {
+        favscenarios[i].style.display = "none";
         }
-        for (let i = 9; i < favscenarios.length; i++){
-        favscenarios[i].style.left = "0px";
+        rightarrow.addEventListener("click", rightClicktotheEnd);
+        isActive = true;
+        leftarrow.style.opacity = "1";
+        leftarrow.style.cursor = "pointer";
         }
-        for (let i = 0; i < favscenarios.length; i++) {
-        favscenarios[i].style.transition = "all 300ms linear 0s," +
-        "left 300ms linear 350ms";
-        }
+
+        else if (windowsize1340.matches){
         rightarrow.style.opacity = "0.33";
         leftarrow.style.opacity = "1";
         leftarrow.style.cursor = "pointer";
         rightarrow.style.cursor = "unset";
-        });
-        const leftarrow = document.getElementById("leftarrow");
-        leftarrow.addEventListener("click",()=>{
+        for (let i = 0; i < 6; i++) {
+        favscenarios[i].style.display = "none";
+        }
+        }
+        else{
+        rightarrow.style.opacity = "0.33";
+        leftarrow.style.opacity = "1";
+        leftarrow.style.cursor = "pointer";
+        rightarrow.style.cursor = "unset";
         for (let i = 0; i < 9; i++) {
-        favscenarios[i].style.visibility = "visible";
-        favscenarios[i].style.opacity = "1";
+        favscenarios[i].style.display = "none";
         }
-        for (let i = 9; i < favscenarios.length; i++){
-        favscenarios[i].style.left = "700px";
         }
+        });
+        const rightClicktotheEnd = () =>{
+        for (let i = 3; i < 6; i++) {
+        favscenarios[i].style.display = "none";
+        }
+        rightarrow.removeEventListener("click", rightClicktotheEnd);
+        isActive = false;
+        rightarrow.style.opacity = "0.33";
+        rightarrow.style.cursor = "unset";
+        };
+
+        leftarrow.addEventListener("click",()=>{
+        if (windowsize910.matches){
+        if (isActive === false){
+        for (let i = 3; i < 6; i++) {
+        favscenarios[i].style.display = "inline-block";
+        }
+        leftarrow.addEventListener("click", leftClicktotheEnd);
+        rightarrow.addEventListener("click", rightClicktotheEnd);
+        rightarrow.style.opacity = "1";
+        rightarrow.style.cursor = "pointer";
+        }
+        else {
+        leftClicktotheEnd();
+        }
+        }
+        else {
         for (let i = 0; i < favscenarios.length; i++) {
-        favscenarios[i].style.transition = "all 300ms linear 0s," +
-        "visibility 300ms linear 350ms," + "opacity 300ms linear 350ms";
+        favscenarios[i].style.display = "inline-block";
         }
         leftarrow.style.opacity = "0.33";
         rightarrow.style.opacity = "1";
         leftarrow.style.cursor = "unset";
         rightarrow.style.cursor = "pointer";
+        }
         });
-        if (favscenarios.length >= 10){
-            rightarrow.style.display = "block";
-            leftarrow.style.display = "block";
+        const leftClicktotheEnd = () =>{
+        for (let i = 0; i < favscenarios.length; i++) {
+        favscenarios[i].style.display = "inline-block";
+        }
+        leftarrow.removeEventListener("click",leftClicktotheEnd);
+        rightarrow.removeEventListener("click", rightClicktotheEnd);
+        leftarrow.style.opacity = "0.33";
+        leftarrow.style.cursor = "unset";
+        rightarrow.style.opacity = "1";
+        rightarrow.style.cursor = "pointer";
         }
         };

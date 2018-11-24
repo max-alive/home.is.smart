@@ -123,11 +123,7 @@ body,
         display: none !important;
     }
     div.favscenarios{
-        visibility: visible !important;
-        opacity: 1 !important;
-        top: unset !important;
-        left: unset !important;
-        transition: none !important;
+        display: inline-block !important;
     }
 }
 header{
@@ -219,7 +215,6 @@ h3#infoh{
 /*}*/
 .smallpanel{
     position: absolute;
-    /*left: 450px;*/
     right: 20px;
     background-color: #f7f7f7;
     border-radius: 20px;
@@ -288,7 +283,7 @@ div.favscenarios:hover{
     box-shadow: 0 2px 6px 0 rgba(197, 186, 186, 0.5);
 }
 div#nestedscenarios{
-    height: 335px;
+    height: 330px;
     position: absolute;
     top: 60px;
     left: 25px;
@@ -300,11 +295,6 @@ p.favscenariosubtext{
     font-weight: normal;
     color: #858585;
     margin-top: -10px;
-}
-div.favscenarios:nth-child(n+10){
-    position: absolute;
-    top: 0;
-    left: 700px;
 }
 img#leftarrow{
     display: none;
@@ -319,13 +309,6 @@ img#rightarrow{
     top: 22px;
     right: 35px;
     opacity: 1;
-    -webkit-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
     transform: rotate(180deg);
     cursor: pointer;
-}
-div.favscenarios.favscenariosvision{
-    visibility: hidden;
 }

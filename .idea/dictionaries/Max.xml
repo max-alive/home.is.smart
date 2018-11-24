@@ -6,6 +6,7 @@
       <w>athome</w>
       <w>bulletcam</w>
       <w>burgerking</w>
+      <w>clicktothe</w>
       <w>cloudcry</w>
       <w>devs</w>
       <w>dlink</w>
@@ -27,6 +28,7 @@
       <w>isdooropened</w>
       <w>lastaim</w>
       <w>leftarrow</w>
+      <w>leftclickmiddle</w>
       <w>logoicon</w>
       <w>logoimg</w>
       <w>mediaquery</w>
@@ -40,6 +42,7 @@
       <w>onload</w>
       <w>philcool</w>
       <w>rightarrow</w>
+      <w>rightclicktomiddle</w>
       <w>smallpanel</w>
       <w>smallpanelair</w>
       <w>smallpanelcam</w>
@@ -51,6 +54,7 @@
       <w>touchdirect</w>
       <w>touchend</w>
       <w>touchstart</w>
+      <w>windowsize</w>
       <w>xiaomi</w>
       <w>yeelight</w>
     </words>
