@@ -18,11 +18,13 @@
     const devs = [temp, light, cam, air];
     const windowsize1340 = window.matchMedia("(max-width: 1339px)");
     const windowsize910 = window.matchMedia("(max-width: 909px)");
+    const windowsize640 = window.matchMedia("(max-width: 640px)");
     const mqltransform = window.matchMedia("(max-width: 1210px)");
     const mqlmediumscreen = window.matchMedia("(max-width: 1090px) AND (min-width: 641px)");
     const mqlsmallscreen = window.matchMedia("(max-width: 551px)");
     const mqlarr = [mqltransform, mqlmediumscreen, mqlsmallscreen];
-    const touchStart = touchdirect => {
+    let startposx,startposy,endposx,endposy;
+        const touchStart = touchdirect => {
         startposx = touchdirect.touches[0].clientX;
         startposy = touchdirect.touches[0].clientY;
     };
@@ -105,7 +107,6 @@
         mqlarr.forEach(vars=>{
             vars.addListener(mediaquery);
         });
-        let startposx,startposy,endposx,endposy;
         const touchTheLast = () => {
         if (endposx > startposx && (Math.abs(startposx - endposx) > 25)
         && Math.abs(endposy - startposy) < 75){
@@ -201,5 +202,34 @@
         leftarrow.style.cursor = "unset";
         rightarrow.style.opacity = "1";
         rightarrow.style.cursor = "pointer";
+        };
+        const nestedscenarios = document.getElementById("nestedscenarios");
+        nestedscenarios.addEventListener("touchstart", touchStart);
+        nestedscenarios.addEventListener("touchend", touchend =>{
+        endposx = touchend.changedTouches[0].clientX;
+        endposy = touchend.changedTouches[0].clientY;
+        if (endposx < startposx && (Math.abs(startposx - endposx) > 25)
+        && (Math.abs(startposy - endposy) < 75) && windowsize640.matches){
+        nestedscenarios.style.marginLeft = "-215px";
+        nestedscenarios.addEventListener("touchend", secondTouch);
         }
+        });
+        const secondTouch = () =>{
+        if (endposx < startposx && (Math.abs(startposx - endposx) > 25)
+        && (Math.abs(startposy - endposy) < 75) && windowsize640.matches){
+        nestedscenarios.style.marginLeft = -215*2 + "px";
+        }
+        else if (endposx > startposx && (Math.abs(startposx - endposx) > 25)
+        && (Math.abs(startposy - endposy) < 75) && windowsize640.matches){
+        nestedscenarios.style.marginLeft = "0px";
+        }
+        nestedscenarios.removeEventListener("touchend", secondTouch);
+        };
+        const mobilescenarios = () =>{
+        if (!windowsize640.matches){
+        nestedscenarios.style.marginLeft = "unset";
+        }
+        };
+        mobilescenarios();
+        windowsize640.addListener(mobilescenarios);
         };
