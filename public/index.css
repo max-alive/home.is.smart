@@ -56,7 +56,6 @@ body,
     }
     header{
         border: none !important;
-        position: relative;
     }
     #hellotou{
         font-size: 16px !important;
@@ -98,13 +97,13 @@ body,
         text-transform: uppercase;
         float: none;
         clear: left;
-        margin: 3px auto !important;
+        margin: 1px auto !important;
         padding: 10px 20px !important;
         width: 75%;
-        background-color: rgba(67, 119, 230, 0.5);
+        background-color: rgba(70, 130, 180, 1);
     }
     .headerlist.adaptheader a:not(:last-child):hover{
-        background-color: rgba(67, 119, 230, 1);
+        background-color: rgba(65, 105, 255, 1);
     }
    .headerlist a:not(:last-child){
        visibility: hidden;
@@ -125,6 +124,12 @@ body,
     div.favscenarios{
         display: inline-block !important;
     }
+    header{
+        padding-bottom: 3px;
+    }
+    div.page{
+        height: 120% !important;
+    }
 }
 header{
     border-bottom: 1px solid #f0f0f0;
@@ -137,8 +142,9 @@ header{
     text-decoration: none;
     margin: 25px 0 0 20px;
     text-align: center;
-    transition: all 250ms linear,visibility 0s,padding-left 0s,padding-right 0s,
-    margin-top 0s,color 500ms linear,background-color 0s;
+    transition: all 250ms linear,visibility 0s,
+    padding-bottom 0s,padding-left 0s,margin-left 0s,
+    margin-top 0s,color 500ms linear;
 }
 .headerlist a:hover{
     color: #ffdf00;
