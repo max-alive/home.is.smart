@@ -123,12 +123,13 @@ body,
     }
     div.favscenarios{
         display: inline-block !important;
+        margin-right: 10px !important;
     }
     header{
         padding-bottom: 3px;
     }
     div.page{
-        height: 130% !important;
+        height: 135% !important;
     }
 }
 header{
@@ -143,7 +144,7 @@ header{
     margin: 25px 0 0 20px;
     text-align: center;
     transition: all 250ms linear,visibility 0s,
-    padding-bottom 0s,padding-left 0s,margin-left 0s,
+    padding-left 0s,margin-left 0s,
     margin-top 0s,color 500ms linear;
 }
 .headerlist a:hover{

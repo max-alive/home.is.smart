@@ -10,7 +10,6 @@
             list.className = "headerlist";
         }
     });
-    const fwd = -210;
     const temp = document.getElementById("smallpaneltemp");
     const light = document.getElementById("smallpanellight");
     const cam = document.getElementById("smallpanelcam");
@@ -24,9 +23,9 @@
     const mqlsmallscreen = window.matchMedia("(max-width: 551px)");
     const mqlarr = [mqltransform, mqlmediumscreen, mqlsmallscreen];
     let startposx,startposy,endposx,endposy;
-        const touchStart = touchdirect => {
-        startposx = touchdirect.touches[0].clientX;
-        startposy = touchdirect.touches[0].clientY;
+    const touchStart = touchdirect => {
+    startposx = touchdirect.touches[0].clientX;
+    startposy = touchdirect.touches[0].clientY;
     };
     const touchEnd = touchdirect => {
         endposx = touchdirect.changedTouches[0].clientX;
@@ -42,10 +41,10 @@
             }
             else if (endposx < startposx && (Math.abs(startposx - endposx) > 25)
                 && Math.abs(startposy - endposy) < 75){
-                temp.style.left = fwd * 1.25 + 15 + "px";
-                light.style.left = fwd * 1.25 + 210 + "px";
-                cam.style.left = fwd * 1.25 + 405 + "px";
-                air.style.left = fwd * 1.25 + 600 + "px";
+                temp.style.left = -210 * 1.25 + 15 + "px";
+                light.style.left = -210 * 1.25 + 210 + "px";
+                cam.style.left = -210 * 1.25 + 405 + "px";
+                air.style.left = -210 * 1.25 + 600 + "px";
                 if (mqlmediumscreen.matches || mqlsmallscreen.matches){
                     devs.forEach(aim=>{
                         aim.addEventListener("touchstart", touchStart);
@@ -56,10 +55,10 @@
         const touchLast = () => {
         if (endposx < startposx && (Math.abs(startposx - endposx) > 25)
         && Math.abs(endposy - startposy) < 75){
-            temp.style.left = fwd * 2.5 + 15 + "px";
-            light.style.left = fwd * 2.5 + 210 + "px";
-            cam.style.left = fwd * 2.5 + 405 + "px";
-            air.style.left = fwd * 2.5 + 600 + "px";
+            temp.style.left = -210 * 2.5 + 15 + "px";
+            light.style.left = -210 * 2.5 + 210 + "px";
+            cam.style.left = -210 * 2.5 + 405 + "px";
+            air.style.left = -210 * 2.5 + 600 + "px";
             devs.forEach(lastaim=>{
             lastaim.addEventListener("touchstart", touchStart);
             lastaim.addEventListener("touchend", touchTheLast)});
@@ -85,10 +84,10 @@
             devs.forEach(target=>{
                 target.addEventListener("wheel",direct=>{
                 if (direct.deltaY > 0){
-                temp.style.top = fwd + 20 + "px";
-                light.style.top = fwd + 150 + "px";
-                cam.style.top = fwd + 280 + "px";
-                air.style.top = fwd + 410 + "px";}
+                temp.style.top = -210 + 20 + "px";
+                light.style.top = -210 + 150 + "px";
+                cam.style.top = -210 + 280 + "px";
+                air.style.top = -210 + 410 + "px";}
                 else {
                 temp.style.top = "20px";
                 light.style.top = "150px";
@@ -110,10 +109,10 @@
         const touchTheLast = () => {
         if (endposx > startposx && (Math.abs(startposx - endposx) > 25)
         && Math.abs(endposy - startposy) < 75){
-        temp.style.left = fwd * 1.25 + 15 + "px";
-        light.style.left = fwd * 1.25 + 210 + "px";
-        cam.style.left = fwd * 1.25 + 405 + "px";
-        air.style.left = fwd * 1.25 + 600 + "px";
+        temp.style.left = -210 * 1.25 + 15 + "px";
+        light.style.left = -210 * 1.25 + 210 + "px";
+        cam.style.left = -210 * 1.25 + 405 + "px";
+        air.style.left = -210 * 1.25 + 600 + "px";
         devs.forEach(finalaim=>{
         finalaim.addEventListener("touchend", touchLast);
         finalaim.removeEventListener("touchend", touchTheLast)});
@@ -204,26 +203,165 @@
         rightarrow.style.cursor = "pointer";
         };
         const nestedscenarios = document.getElementById("nestedscenarios");
-        nestedscenarios.addEventListener("touchstart", touchStart);
-        nestedscenarios.addEventListener("touchend", touchend =>{
+        Array.prototype.forEach.call(favscenarios, favscenariosarg =>{
+        favscenariosarg.addEventListener("touchstart", touchStart);
+        });
+        const firstTouch = touchend => {
+        endposx = touchend.changedTouches[0].clientX;
+        endposy = touchend.changedTouches[0].clientY;
+        if (endposx < startposx
+        && (Math.abs(startposy - endposy) < 75) && windowsize640.matches) {
+        nestedscenarios.style.marginLeft = "-205px";
+        Array.prototype.forEach.call(favscenarios, favscenariosarg =>{
+            favscenariosarg.addEventListener("touchend", secondTouch);
+        });
+        }
+        Array.prototype.forEach.call(favscenarios, favscenariosarg =>{
+            favscenariosarg.removeEventListener("touchend", thirdTouch);
+        });
+        };
+        Array.prototype.forEach.call(favscenarios, favscenariosarg =>{
+            favscenariosarg.addEventListener("touchend", firstTouch);
+        });
+        const secondTouch = touchend =>{
         endposx = touchend.changedTouches[0].clientX;
         endposy = touchend.changedTouches[0].clientY;
         if (endposx < startposx && (Math.abs(startposx - endposx) > 25)
         && (Math.abs(startposy - endposy) < 75) && windowsize640.matches){
-        nestedscenarios.style.marginLeft = "-215px";
-        nestedscenarios.addEventListener("touchend", secondTouch);
-        }
+        nestedscenarios.style.marginLeft = -205 * 2 + "px";
+        Array.prototype.forEach.call(favscenarios, favscenariosarg =>{
+            favscenariosarg.removeEventListener("touchend", firstTouch);
         });
-        const secondTouch = () =>{
-        if (endposx < startposx && (Math.abs(startposx - endposx) > 25)
-        && (Math.abs(startposy - endposy) < 75) && windowsize640.matches){
-        nestedscenarios.style.marginLeft = -215*2 + "px";
+        Array.prototype.forEach.call(favscenarios, favscenariosarg =>{
+            favscenariosarg.addEventListener("touchend", thirdTouch);
+        });
         }
         else if (endposx > startposx && (Math.abs(startposx - endposx) > 25)
         && (Math.abs(startposy - endposy) < 75) && windowsize640.matches){
         nestedscenarios.style.marginLeft = "0px";
+        Array.prototype.forEach.call(favscenarios, favscenariosarg =>{
+                favscenariosarg.addEventListener("touchend", firstTouch);
+        });
         }
-        nestedscenarios.removeEventListener("touchend", secondTouch);
+        Array.prototype.forEach.call(favscenarios, favscenariosarg =>{
+            favscenariosarg.removeEventListener("touchend", secondTouch);
+        });
+        };
+        const thirdTouch = touchend =>{
+        endposx = touchend.changedTouches[0].clientX;
+        endposy = touchend.changedTouches[0].clientY;
+        if (endposx < startposx && (Math.abs(startposx - endposx) > 25)
+        && (Math.abs(startposy - endposy) < 75) && windowsize640.matches){
+        nestedscenarios.style.marginLeft = -205 * 3 + "px";
+        Array.prototype.forEach.call(favscenarios, favscenariosarg =>{
+            favscenariosarg.addEventListener("touchend", fourthTouch);
+        });
+        }
+        else if (endposx > startposx && (Math.abs(startposx - endposx) > 25)
+        && (Math.abs(startposy - endposy) < 75) && windowsize640.matches){
+        nestedscenarios.style.marginLeft = "-205px";
+        Array.prototype.forEach.call(favscenarios, favscenariosarg =>{
+            favscenariosarg.addEventListener("touchend", secondTouch);
+        });
+        }
+        Array.prototype.forEach.call(favscenarios, favscenariosarg =>{
+            favscenariosarg.removeEventListener("touchend", thirdTouch);
+        });
+        };
+        const fourthTouch = touchend =>{
+        endposx = touchend.changedTouches[0].clientX;
+        endposy = touchend.changedTouches[0].clientY;
+        if (endposx < startposx && (Math.abs(startposx - endposx) > 25)
+        && (Math.abs(startposy - endposy) < 75) && windowsize640.matches){
+        nestedscenarios.style.marginLeft = -205 * 4 + "px";
+        Array.prototype.forEach.call(favscenarios, favscenariosarg =>{
+            favscenariosarg.addEventListener("touchend", fifthTouch);
+        });
+        }
+        else if (endposx > startposx && (Math.abs(startposx - endposx) > 25)
+        && (Math.abs(startposy - endposy) < 75) && windowsize640.matches) {
+        nestedscenarios.style.marginLeft = -205 * 2 + "px";
+        Array.prototype.forEach.call(favscenarios, favscenariosarg =>{
+            favscenariosarg.addEventListener("touchend", thirdTouch);
+        });
+        }
+        Array.prototype.forEach.call(favscenarios, favscenariosarg =>{
+            favscenariosarg.removeEventListener("touchend", fourthTouch);
+        });
+        };
+        const fifthTouch = touchend =>{
+        endposx = touchend.changedTouches[0].clientX;
+        endposy = touchend.changedTouches[0].clientY;
+        if (endposx < startposx && (Math.abs(startposx - endposx) > 25)
+        && (Math.abs(startposy - endposy) < 75) && windowsize640.matches){
+        nestedscenarios.style.marginLeft = -205 * 5 + "px";
+        Array.prototype.forEach.call(favscenarios, favscenariosarg =>{
+            favscenariosarg.addEventListener("touchend", sixthTouch);
+        });
+        }
+        else if (endposx > startposx && (Math.abs(startposx - endposx) > 25)
+        && (Math.abs(startposy - endposy) < 75) && windowsize640.matches) {
+        nestedscenarios.style.marginLeft = -205 * 3 + "px";
+        Array.prototype.forEach.call(favscenarios, favscenariosarg =>{
+            favscenariosarg.addEventListener("touchend", fourthTouch);
+        });
+        }
+        Array.prototype.forEach.call(favscenarios, favscenariosarg =>{
+            favscenariosarg.removeEventListener("touchend", fifthTouch);
+        });
+        };
+        const sixthTouch = touchend =>{
+        endposx = touchend.changedTouches[0].clientX;
+        endposy = touchend.changedTouches[0].clientY;
+        if (endposx < startposx && (Math.abs(startposx - endposx) > 25)
+        && (Math.abs(startposy - endposy) < 75) && windowsize640.matches){
+        nestedscenarios.style.marginLeft = -205 * 6 + "px";
+        Array.prototype.forEach.call(favscenarios, favscenariosarg =>{
+            favscenariosarg.addEventListener("touchend", seventhTouch);
+        });
+        }
+        else if (endposx > startposx && (Math.abs(startposx - endposx) > 25)
+        && (Math.abs(startposy - endposy) < 75) && windowsize640.matches) {
+        nestedscenarios.style.marginLeft = -205 * 4 + "px";
+        Array.prototype.forEach.call(favscenarios, favscenariosarg =>{
+            favscenariosarg.addEventListener("touchend", fifthTouch);
+        });
+        }
+        Array.prototype.forEach.call(favscenarios, favscenariosarg =>{
+            favscenariosarg.removeEventListener("touchend", sixthTouch);
+        });
+        };
+        const seventhTouch = touchend =>{
+        endposx = touchend.changedTouches[0].clientX;
+        endposy = touchend.changedTouches[0].clientY;
+        if (endposx < startposx && (Math.abs(startposx - endposx) > 25)
+        && (Math.abs(startposy - endposy) < 75) && windowsize640.matches){
+        nestedscenarios.style.marginLeft = -205 * 7 + "px";
+        Array.prototype.forEach.call(favscenarios, favscenariosarg =>{
+            favscenariosarg.addEventListener("touchend", eighthTouch);
+        });
+        }
+        else if (endposx > startposx && (Math.abs(startposx - endposx) > 25)
+        && (Math.abs(startposy - endposy) < 75) && windowsize640.matches) {
+        nestedscenarios.style.marginLeft = -205 * 5 + "px";
+        Array.prototype.forEach.call(favscenarios, favscenariosarg =>{
+        favscenariosarg.addEventListener("touchend", sixthTouch);
+        });
+        }
+        Array.prototype.forEach.call(favscenarios, favscenariosarg =>{
+        favscenariosarg.removeEventListener("touchend", seventhTouch);
+        });
+        };
+        const eighthTouch = touchend => {
+        endposx = touchend.changedTouches[0].clientX;
+        endposy = touchend.changedTouches[0].clientY;
+        if (endposx > startposx && (Math.abs(startposx - endposx) > 25)
+        && (Math.abs(startposy - endposy) < 75) && windowsize640.matches) {
+        nestedscenarios.style.marginLeft = -205 * 6 + "px";
+        Array.prototype.forEach.call(favscenarios, favscenariosarg =>{
+            favscenariosarg.addEventListener("touchend", seventhTouch);
+        });
+        }
         };
         const mobilescenarios = () =>{
         if (!windowsize640.matches){
