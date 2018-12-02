@@ -33,6 +33,7 @@
       <w>leftclickmiddle</w>
       <w>logoicon</w>
       <w>logoimg</w>
+      <w>logoimgarg</w>
       <w>mediaquery</w>
       <w>mobilescenarios</w>
       <w>mqlarr</w>
@@ -44,6 +45,7 @@
       <w>nestedscenariosarg</w>
       <w>omna</w>
       <w>onload</w>
+      <w>pagearg</w>
       <w>philcool</w>
       <w>rightarrow</w>
       <w>rightclicktomiddle</w>

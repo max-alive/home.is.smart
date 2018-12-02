@@ -111,15 +111,15 @@ body,
     #smallpaneltemp,#smallpanellight, #smallpanelcam, #smallpanelair{
         top: 140px !important;
     }
-    h3#favscenarios{
-        position: static !important;
-    }
     div#nestedscenarios{
-        left: 0 !important;
         white-space: nowrap;
+        overflow: visible !important;
     }
     img#rightarrow,img#leftarrow{
         display: none !important;
+    }
+    h3#favscenarios{
+        margin-left: 3% !important;
     }
     div.favscenarios{
         display: inline-block !important;
@@ -129,7 +129,7 @@ body,
         padding-bottom: 3px;
     }
     div.page{
-        height: 135% !important;
+        height: 125% !important;
     }
 }
 header{
@@ -154,14 +154,19 @@ header{
 .logoimg{
     margin: 5px 0 5px 40px;
     float: left;
+    cursor: pointer;
 }
 .info{
     text-align: center;
 }
-.nestedcont,
 section.scenarios{
     position: relative;
-    width: 95%;
+    width: 100%;
+    overflow: hidden;
+}
+div.nestedcont{
+    position: relative;
+    width: 96%;
     margin-left: auto;
     overflow: hidden;
 }
@@ -260,8 +265,7 @@ h3#infoh{
     margin-top: 5px;
 }
 h3#favscenarios{
-    position: absolute;
-    left: 25px;
+    margin: 20px 0 -40px 25px;
 }
 div.favscenarios{
     display: inline-block;
@@ -287,12 +291,11 @@ div.favscenarios:hover{
 }
 div#nestedscenarios{
     height: 330px;
-    position: absolute;
-    top: 60px;
-    left: 25px;
     font-size: 0;
-    overflow: hidden;
     transition: all 300ms linear 0s;
+    margin: 60px auto 0;
+    width: 96%;
+    overflow: hidden;
 }
 p.favscenariosubtext{
     font-size: 12px;
