@@ -16,6 +16,7 @@
       <w>favscenariosanima</w>
       <w>favscenariosarg</w>
       <w>favscenariosh</w>
+      <w>favscenariosnew</w>
       <w>favscenariostext</w>
       <w>favscenariosubtext</w>
       <w>favscenariosvision</w>
@@ -59,6 +60,7 @@
       <w>startposy</w>
       <w>touchdirect</w>
       <w>touchend</w>
+      <w>touchesarg</w>
       <w>touchmove</w>
       <w>touchstart</w>
       <w>windowsize</w>

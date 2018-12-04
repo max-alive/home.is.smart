@@ -113,17 +113,19 @@ body,
     }
     div#nestedscenarios{
         white-space: nowrap;
-        overflow: visible !important;
     }
     img#rightarrow,img#leftarrow{
         display: none !important;
     }
     h3#favscenarios{
-        margin-left: 3% !important;
+        margin-left: 2% !important;
     }
-    div.favscenarios{
+    div.favscenarios {
         display: inline-block !important;
         margin-right: 10px !important;
+    }
+    div.favscenarios:hover{
+        pointer-events: none;
     }
     header{
         padding-bottom: 3px;
