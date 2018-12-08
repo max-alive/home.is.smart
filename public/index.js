@@ -8,10 +8,10 @@
     });
     const list = document.getElementById("headerlist");
     const burger = document.getElementById("burger");
-    const page = document.getElementsByClassName("page");
-    Array.prototype.forEach.call(page, pagearg =>{
-        pagearg.style.height = "135% !important"
-    });
+    // const page = document.getElementsByClassName("page");
+    // Array.prototype.forEach.call(page, pgparam =>{
+    //     pgparam.style.height = "135% !important"
+    // });
     burger.addEventListener("click",()=>{
 
         if (list.className === "headerlist"){
@@ -445,11 +445,11 @@
         const mobilescenarios = () =>{
         if (!windowsize640.matches){
         nestedscenarios.style.paddingLeft = "25px";
-        Array.prototype.forEach.call(favscenarios, favscenariosarg =>{
-            favscenariosarg.style.marginLeft = "0";
+        Array.prototype.forEach.call(favscenarios, favscenariosparam =>{
+            favscenariosparam.style.marginLeft = "0";
         });
         }
-        else {
+        else{
         nestedscenarios.style.paddingLeft = "unset";
         Array.prototype.forEach.call(favscenarios, favscenariosarg =>{
             favscenariosarg.addEventListener("touchend", firstTouch);
