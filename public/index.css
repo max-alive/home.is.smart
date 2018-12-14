@@ -1,13 +1,14 @@
 html,
 body,
-.page{
+.wrapall{
+    height: 100%;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
     color: #333333;
 }
-.page{
+.wrapall{
     display: flex;
     flex-direction: column;
     margin: 0 auto;
@@ -18,24 +19,9 @@ body,
     flex-direction: row;
     flex: 1 0 auto;
 }
-.devices{
-    flex-basis: 140px;
-}
 .info,
 .scenarios{
     flex-basis: 50%;
-}
-
-@media (max-width: 1210px) {
-    .smallpanel{
-        right: unset !important;
-    }
-    #smallpaneltemp,
-    #smallpanellight,
-    #smallpanelcam,
-    #smallpanelair {
-        top: 200px !important;
-    }
 }
 header{
     border-bottom: 1px solid #f0f0f0;
@@ -61,7 +47,7 @@ header{
     float: left;
     cursor: pointer;
 }
-.info{
+section.info{
     text-align: center;
 }
 section.scenarios{
@@ -182,9 +168,7 @@ div.favscenarios{
     padding: 10px 0 0 15px;
     font-size: 14px;
     font-weight: bold;
-    transition: all 300ms linear 0s,
-    visibility 300ms linear 350ms,
-    opacity 300ms linear 350ms;
+    transition: all 300ms linear 0s;
     cursor: pointer;
     vertical-align: top;
     white-space: normal;
@@ -225,9 +209,11 @@ img#rightarrow{
     transform: rotate(180deg);
     cursor: pointer;
 }
+
 h3#devheading {
     margin: 20px 0 0 2%;
     float: left;
+    padding-right: 10px;
 }
 li.devlist{
     display: inline-block;
@@ -242,7 +228,6 @@ li.devlist{
 }
 li.devlist:first-child{
     background-color: #ffd93e;
-    margin-left: 20px;
 }
 ul#devlist{
     font-size: 0;
@@ -251,7 +236,57 @@ img#devarrow{
     display: none;
 }
 
+div.devmain{
+}
+div.favouritedev_wrap{
+    margin: 20px 0 0 2%;
+    font-size: 0;
+    white-space: nowrap;
+    overflow-x: hidden;
+}
+div.favouritedev{
+    width: 175px;
+    height: 100px;
+    background-color: #f7f7f7;
+    border-radius: 20px;
+    padding: 10px 0 0 15px;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 400ms linear;
+    vertical-align: top;
+    margin: 0 10px 10px 0;
+}
+div.favouritedev:hover{
+    background-color: #fff;
+    box-shadow: 0 2px 6px 0 rgba(197, 186, 186, 0.5);
+}
+p.favouritedevp{
+    font-size: 14px;
+    font-weight: 600;
+}
+p.favouritedev_childp{
+    font-size: 12px;
+}
+
+footer{
+    flex-basis: 25px;
+}
+
+@media (max-width: 1210px) {
+    .smallpanel{
+        right: unset !important;
+    }
+    #smallpaneltemp,
+    #smallpanellight,
+    #smallpanelcam,
+    #smallpanelair {
+        top: 200px !important;
+    }
+}
 @media (max-width: 640px) {
+    div.wrapall{
+        height: auto;
+    }
     .container{
         flex-direction: column;
     }
@@ -333,23 +368,16 @@ img#devarrow{
     h3#favscenarios{
         margin-left: 2%;
     }
-    /*div.favscenarios {*/
-        /*display: inline-block;*/
-    /*}*/
-    div.favscenarios:hover{
-        pointer-events: none;
+    div.favscenarios:hover,
+    div.favouritedev:hover{
+        background-color: #f7f7f7;
+        box-shadow: unset;
     }
     header{
         padding-bottom: 3px;
     }
-    /*div.page{*/
-    /*height: 100% !important;*/
-    /*}*/
-    h3#devheading{
-        margin-top: 15px;
-    }
     li.devlist{
-        margin: 12px 2% 0 0;
+        margin-right: 2%;
         float: right;
     }
     li.devlist:not(:first-child){
@@ -361,5 +389,18 @@ img#devarrow{
         float: right;
         margin: 3px 0 0 5px;
         filter: brightness(0%);
+    }
+    div.devmain{
+        overflow: hidden;
+    }
+    div.favouritedev_wrap {
+        float: left;
+        clear: both;
+    }
+}
+@media (max-width: 300px){
+    li.devlist{
+        float: left;
+        margin-left: 2%;
     }
 }

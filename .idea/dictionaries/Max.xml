@@ -6,16 +6,21 @@
       <w>athome</w>
       <w>bulletcam</w>
       <w>burgerking</w>
+      <w>childp</w>
       <w>clicktothe</w>
       <w>cloudcry</w>
       <w>devarrow</w>
       <w>devheader</w>
       <w>devheading</w>
       <w>devlist</w>
+      <w>devmain</w>
       <w>devs</w>
       <w>dlink</w>
       <w>endposx</w>
       <w>endposy</w>
+      <w>favouritedev</w>
+      <w>favouritedevchildp</w>
+      <w>favouritedevp</w>
       <w>favscenarios</w>
       <w>favscenariosanima</w>
       <w>favscenariosarg</w>
@@ -71,6 +76,7 @@
       <w>touchmove</w>
       <w>touchstart</w>
       <w>windowsize</w>
+      <w>wrapall</w>
       <w>xiaomi</w>
       <w>yeelight</w>
     </words>

@@ -8,10 +8,6 @@
     });
     const list = document.getElementById("headerlist");
     const burger = document.getElementById("burger");
-    // const page = document.getElementsByClassName("page");
-    // Array.prototype.forEach.call(page, pgparam =>{
-    //     pgparam.style.height = "135% !important"
-    // });
     burger.addEventListener("click",()=>{
 
         if (list.className === "headerlist"){
@@ -465,4 +461,9 @@
         };
         mobilescenarios();
         windowsize640.addListener(mobilescenarios);
+
+        const circle = document.getElementById("Xiaomi_circle");
+        circle.addEventListener("click", ()=>{
+            circle.style.width = ""
+        })
         };
