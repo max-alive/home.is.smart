@@ -462,8 +462,28 @@
         mobilescenarios();
         windowsize640.addListener(mobilescenarios);
 
-        const circle = document.getElementById("Xiaomi_circle");
-        circle.addEventListener("click", ()=>{
-            circle.style.width = ""
+        const popup1 = document.querySelectorAll(".popup")[0];
+        const dev1 = document.querySelectorAll(".devs")[0];
+
+        document.addEventListener("click", function(e){
+            const target = e.target;
+            
+            if(target === dev1 || target.parentNode === dev1){
+                const rect = e.target.getBoundingClientRect();
+                popup1.style.left = `${rect.x}px`;
+                popup1.style.top = `${rect.y}px`;
+                setTimeout(function(){
+                document.body.classList.add("opened");
+                setTimeout(function(){
+                    popup1.classList.add("opened");    
+                },100);    
+                },100);        
+            }
+            else if(target.classList.contains("paranja")){
+                popup1.classList.remove("opened");
+                setTimeout(function(){
+                    document.body.classList.remove("opened");
+                },1000);    
+            }
         })
         };

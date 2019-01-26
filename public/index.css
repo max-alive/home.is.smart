@@ -235,16 +235,13 @@ ul#devlist{
 img#devarrow{
     display: none;
 }
-
-div.devmain{
-}
-div.favouritedev_wrap{
+div.devs_wrap{
     margin: 20px 0 0 2%;
     font-size: 0;
     white-space: nowrap;
     overflow-x: hidden;
 }
-div.favouritedev{
+div.devs{
     width: 175px;
     height: 100px;
     background-color: #f7f7f7;
@@ -256,16 +253,54 @@ div.favouritedev{
     vertical-align: top;
     margin: 0 10px 10px 0;
 }
-div.favouritedev:hover{
+div.devs:hover{
     background-color: #fff;
     box-shadow: 0 2px 6px 0 rgba(197, 186, 186, 0.5);
 }
-p.favouritedevp{
+p.devs_p1{
     font-size: 14px;
     font-weight: 600;
 }
-p.favouritedev_childp{
+p.devs_p2{
     font-size: 12px;
+}
+
+.paranja{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: none;
+}
+
+.opened .paranja{
+    display: block;
+}
+
+.opened .wrapall{
+    filter: blur(10px);
+    overflow: hidden;    
+}
+
+.popup {
+    width: 640px;
+    height: 320px;
+    background-color: white;
+    padding: 42px;
+    opacity: 0;
+    transform-origin: left top;
+    transform: scale(.1);
+    position: absolute;
+    transition: all 1s ease-in 0s;
+}
+
+.opened.popup {
+    opacity: 1;
+    transform: translate(-50%,-50%) scale(1);
+    top: 50% !important;
+    left: 50% !important;
 }
 
 footer{
