@@ -477,13 +477,63 @@
                 setTimeout(function(){
                     popup1.classList.add("opened");    
                 },100);    
-                },100);        
+                },100);
+                document.body.addEventListener("touchmove", function(event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }, false);        
             }
             else if(target.classList.contains("paranja")){
                 popup1.classList.remove("opened");
                 setTimeout(function(){
                     document.body.classList.remove("opened");
-                },1000);    
+                },1000);
+                document.body.removeEventListener("touchmove", function(event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }, false);    
             }
         })
+
+            var r = 70;                 // радиус
+            var d = r * 2 * Math.PI;    // диаметр
+            var len = d * 0.8;          // максимальная длина линии
+
+            var chart = document.getElementById('bar');
+            var input = document.getElementById('input');
+
+            function updateValue(val) {
+                var l = len * (val || input.value) / 100;
+                chart.style.strokeDasharray = l + ' ' + (d - l);
+            }
+
+            updateValue();
+            input.addEventListener('change', updateValue);
+
+            let params = undefined;
+            const svg = document.querySelector('svg');
+            svg.addEventListener('pointerdown', function(e) {
+                const r = svg.getBoundingClientRect();
+                params = {
+                    x: r.x + r.width / 2,
+                    y: r.y + r.height / 2
+                }
+            });
+
+            svg.addEventListener('pointermove', function(e) {
+                if (params) {
+                    const dx = e.clientX - params.x;
+                    const dy = e.clientY - params.y;
+                    const a = Math.atan2(dy, dx);
+                    // console.log(dx, dy, a);
+                    const val = ((a / Math.PI * 180 - 120) + 360) % 360;
+                    const val2 = val / 290 * 100;
+                    updateValue(val2);
+                    const popup1_temp = document.querySelector(".popup_p1");
+                    const svg_temp = document.querySelector(".svg_temp");
+
+                    popup1_temp.innerHTML = `+${Math.round(val2/2)}`;
+                    svg_temp.innerHTML = `+${Math.round(val2/2)}`;
+                }
+                });
         };

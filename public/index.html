@@ -31,7 +31,7 @@
                     <p id="isdooropened">Двери и окна закрыты, сигнализация включена.</p>
                     <p id="athome">Дома</p>
                     <p id="outside">За окном</p>
-                    <p id="_23">+23</p>
+                    <p class="home_temp">+23</p>
                     <p id="_19">+19</p>
                     <img src="../assets/imgs/cloud-drizzle.png" id="cloudcry" alt="CLOUDS_CRY">
                     <div class="smallpanel" id="smallpaneltemp">
@@ -141,6 +141,33 @@
         <footer></footer>
     </div>
     <div class="paranja">
+        <div class="popup">
+            <img src="../assets/imgs/icon_temperature_2@2x.png" alt="No img" class="popup_img">
+            <p class="popup_p1">+23</p>
+            <p class="popup_p2">Xiaomi Warm Floor</p>
+            <p class="popup_p3">Включено</p>
+            <div class="circle_wrap">
+            <svg width="200" height="200">
+                    <defs>
+                        <mask id="mask1">
+                            <circle r="70" cx="100" cy="100" fill="none" stroke="white" stroke-width="30"
+                                stroke-dasharray="1 7" stroke-dashoffset="-154"></circle>    
+                        </mask>
+                    </defs>
+                    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" 
+                    class="svg_temp" font-size="40" font-weight="bold">+23</text>
+                    <g  mask="url(#mask1)">
+                        <circle 
+                            r="70" cx="100" cy="100" fill="none" stroke="#ccc" stroke-width="30"
+                            stroke-dashoffset="-154" stroke-dasharray="352 88"></circle>
+                        <circle id="bar" r="70" cx="100" cy="100" fill="none" stroke="orange" stroke-width="50" 
+                            stroke-dashoffset="-154"></circle>
+                    </g>
+                </svg>
+                    <input id="input" type="range" min="0" max="120" value="47" />
+                </div>
+        </div>
+        <div class="popup"></div>
         <div class="popup"></div>
     </div>
 </body>
