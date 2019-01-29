@@ -301,6 +301,7 @@ p.devs_p2{
 .opened.popup {
     opacity: 1;
     transform: translate3d(-50%,-50%,0) scale3d(1,1,1);
+    backface-visibility: hidden;
     top: 50% !important;
     left: 50% !important;
 }
