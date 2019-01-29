@@ -464,6 +464,7 @@
 
         const popup1 = document.querySelectorAll(".popup")[0];
         const dev1 = document.querySelectorAll(".devs")[0];
+        const paranja = document.querySelector(".paranja");
 
         document.addEventListener("click", function(e){
             const target = e.target;
@@ -483,7 +484,7 @@
                 //     event.stopPropagation();
                 // }, false);        
             }
-            else if(target.classList.contains("paranja")){
+            else if(target === paranja){
                 popup1.classList.remove("opened");
                 setTimeout(function(){
                     document.body.classList.remove("opened");
