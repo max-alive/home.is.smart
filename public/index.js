@@ -466,7 +466,7 @@
         const dev1 = document.querySelectorAll(".devs")[0];
 
             
-            const events = ["click", "touchstart", "touchend"];
+            const events = ["click", "touchstart"];
 
             events.forEach(function(event){
             document.addEventListener(event, function(e){
