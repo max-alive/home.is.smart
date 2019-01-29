@@ -480,9 +480,8 @@
                     for(let num in rect){
                         obj[num] = rect[num];
                     }
-                    const objstr = JSON.stringify(obj);
-                    popup1.style.left = `${objstr.x}px`;
-                    popup1.style.top = `${objstr.y}px`;
+                    popup1.style.left = `${obj.left}px`;
+                    popup1.style.top = `${obj.top}px`;
                 }
                 else{
                 popup1.style.left = `${rect.x}px`;
@@ -495,21 +494,13 @@
                     popup1.classList.add("opened");    
                 },100);    
                 },100);
-                // document.body.addEventListener("touchmove", function(event) {
-                //     event.preventDefault();
-                //     event.stopPropagation();
-                // }, false);        
-            }
+                }
             else if(target.classList.contains("paranja")){
                 popup1.classList.remove("opened");
                 setTimeout(function(){
                     document.body.classList.remove("opened");
                 },1000);
-                // document.body.removeEventListener("touchmove", function(event) {
-                //     event.preventDefault();
-                //     event.stopPropagation();
-                // }, false);    
-            }
+                }
         });
     });
             var r = 70;                 // радиус
