@@ -464,11 +464,15 @@
 
         const popup1 = document.querySelectorAll(".popup")[0];
         const dev1 = document.querySelectorAll(".devs")[0];
-        const paranja = document.querySelector(".paranja");
 
-        document.addEventListener("click", function(e){
-            const target = e.target;
             
+            const events = ["click", "touchstart", "touchend"];
+
+            events.forEach(function(event){
+            document.addEventListener(event, function(e){
+
+            const target = e.target;
+
             if(target === dev1 || target.parentNode === dev1){
                 const rect = e.target.getBoundingClientRect();
                 popup1.style.left = `${rect.x}px`;
@@ -484,7 +488,7 @@
                 //     event.stopPropagation();
                 // }, false);        
             }
-            else if(target === paranja){
+            else if(target.classList.contains("paranja")){
                 popup1.classList.remove("opened");
                 setTimeout(function(){
                     document.body.classList.remove("opened");
@@ -494,8 +498,8 @@
                 //     event.stopPropagation();
                 // }, false);    
             }
-        })
-
+        });
+    });
             var r = 70;                 // радиус
             var d = r * 2 * Math.PI;    // диаметр
             var len = d * 0.8;          // максимальная длина линии
