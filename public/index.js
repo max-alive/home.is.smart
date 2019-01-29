@@ -516,8 +516,8 @@
                 e.preventDefault();
                 const r = svg.getBoundingClientRect();
                 params = {
-                    x: r.x + r.width / 2,
-                    y: r.y + r.height / 2
+                    x: r.left + r.width / 2,
+                    y: r.top + r.height / 2
                 }
             });
         });
