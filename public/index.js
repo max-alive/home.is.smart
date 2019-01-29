@@ -480,9 +480,9 @@
                     for(let num in rect){
                         obj[num] = rect[num];
                     }
-                    JSON.stringify(obj);
-                    popup1.style.left = `${obj.x}px`;
-                    popup1.style.top = `${obj.y}px`;
+                    const objstr = JSON.stringify(obj);
+                    popup1.style.left = `${objstr.x}px`;
+                    popup1.style.top = `${objstr.y}px`;
                 }
                 else{
                 popup1.style.left = `${rect.x}px`;
