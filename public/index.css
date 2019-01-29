@@ -301,7 +301,6 @@ p.devs_p2{
 .opened.popup {
     opacity: 1;
     transform: translate3d(-50%,-50%,0) scale3d(1,1,1);
-    backface-visibility: hidden;
     top: 50% !important;
     left: 50% !important;
 }
@@ -339,6 +338,9 @@ p.devs_p2{
 
 svg{
     touch-action: none;
+    backface-visibility: hidden;
+    -webkit-transform: translateZ(0) scale(1.0, 1.0);
+    transform: translateZ(0);
 }
 
 input[type=range],input[type=range]::-webkit-slider-thumb{
