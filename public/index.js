@@ -512,7 +512,7 @@
 
             let params = undefined;
             const svg = document.querySelector('svg');
-            svg.addEventListener('pointerdown', function(e) {
+            svg.addEventListener('touchstart', function(e) {
                 const r = svg.getBoundingClientRect();
                 params = {
                     x: r.x + r.width / 2,

@@ -337,7 +337,7 @@ p.devs_p2{
 }
 
 svg{
-    /* touch-action: none; */
+    touch-action: none;
 }
 
 input[type=range]{
