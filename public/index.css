@@ -292,7 +292,7 @@ p.devs_p2{
     padding: 30px;
     opacity: 0;
     transform-origin: left top;
-    transform: scale(.1);
+    transform: scale3d(.1);
     position: absolute;
     transition: all 1s ease-in 0s;
     border-radius: 20px;
