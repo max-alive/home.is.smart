@@ -466,7 +466,7 @@
         const dev1 = document.querySelectorAll(".devs")[0];
 
             
-            const events = ["click", "touchstart"];
+            const events = ["click", "touchend"];
 
             events.forEach(function(event){
             document.addEventListener(event, function(e){
@@ -475,8 +475,19 @@
 
             if(target === dev1 || target.parentNode === dev1){
                 const rect = e.target.getBoundingClientRect();
+                if(windowsize640.matches){
+                    const obj = {};
+                    for(let num in rect){
+                        obj[num] = rect[num];
+                    }
+                    popup1.style.left = `${obj.x}px`;
+                    popup1.style.top = `${obj.y}px`;    
+                }
+                else{
                 popup1.style.left = `${rect.x}px`;
                 popup1.style.top = `${rect.y}px`;
+                }
+
                 setTimeout(function(){
                 document.body.classList.add("opened");
                 setTimeout(function(){
