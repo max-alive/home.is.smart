@@ -340,8 +340,16 @@ svg{
     touch-action: none;
 }
 
+input[type=range]{
+    appearance: none;
+}
+
 input[type=range],input[type=range]::-webkit-slider-thumb{
     -webkit-appearance: none;
+}
+
+input[type=range]::-moz-range-thumb,input[type=range]::-moz-range-track{
+    visibility: hidden;
 }
 
 
@@ -477,13 +485,13 @@ footer{
     }
 
     .popup{
-        width: 275px;
-        height: 500px;
+        width: 310px;
+        height: 475px;
         padding: 15px;
     }
 
     .opened.popup{
-        top: 45% !important;
+        top: 40% !important;
     }
 
     .popup_p1, .popup_img{
