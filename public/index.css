@@ -340,12 +340,12 @@ svg{
     touch-action: none;
 }
 
-input[type=range]{
-    appearance: none;
-}
-
 input[type=range],input[type=range]::-webkit-slider-thumb{
     -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track{
+    background: transparent;
 }
 
 input[type=range]::-moz-range-thumb,input[type=range]::-moz-range-track{

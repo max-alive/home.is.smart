@@ -478,20 +478,20 @@
                     popup1.classList.add("opened");    
                 },100);    
                 },100);
-                document.body.addEventListener("touchmove", function(event) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                }, false);        
+                // document.body.addEventListener("touchmove", function(event) {
+                //     event.preventDefault();
+                //     event.stopPropagation();
+                // }, false);        
             }
             else if(target.classList.contains("paranja")){
                 popup1.classList.remove("opened");
                 setTimeout(function(){
                     document.body.classList.remove("opened");
                 },1000);
-                document.body.removeEventListener("touchmove", function(event) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                }, false);    
+                // document.body.removeEventListener("touchmove", function(event) {
+                //     event.preventDefault();
+                //     event.stopPropagation();
+                // }, false);    
             }
         })
 
