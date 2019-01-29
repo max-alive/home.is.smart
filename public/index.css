@@ -482,12 +482,12 @@ footer{
 
     .popup{
         width: 310px;
-        height: 475px;
+        height: 450px;
         padding: 15px;
     }
 
     .opened.popup{
-        top: 42% !important;
+        top: 42vh !important;
     }
 
     .popup_p1, .popup_img{

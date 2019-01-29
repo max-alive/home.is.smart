@@ -475,18 +475,8 @@
 
             if(target === dev1 || target.parentNode === dev1){
                 const rect = e.target.getBoundingClientRect();
-                if(windowsize640.matches){
-                    const obj = {};
-                    for(let num in rect){
-                        obj[num] = rect[num];
-                    }
-                    popup1.style.left = `${obj.x}px`;
-                    popup1.style.top = `${obj.y}px`;
-                }
-                else{
                 popup1.style.left = `${rect.left}px`;
                 popup1.style.top = `${rect.top}px`;
-                }
 
                 setTimeout(function(){
                 document.body.classList.add("opened");
@@ -520,14 +510,16 @@
 
             let params = undefined;
             const svg = document.querySelector('svg');
-            svg.addEventListener('pointerdown', function(e) {
+            const circle_events = ["pointerdown", "touchend"];
+            circle_events.forEach((event)=>{
+            svg.addEventListener(event, function(e) {
                 const r = svg.getBoundingClientRect();
                 params = {
                     x: r.x + r.width / 2,
                     y: r.y + r.height / 2
                 }
             });
-
+        })
             svg.addEventListener('pointermove', function(e) {
                 if (params) {
                     const dx = e.clientX - params.x;
