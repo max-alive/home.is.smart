@@ -480,12 +480,12 @@
                     for(let num in rect){
                         obj[num] = rect[num];
                     }
-                    popup1.style.left = `${obj.left}px`;
-                    popup1.style.top = `${obj.top}px`;
+                    popup1.style.left = `${obj.x}px`;
+                    popup1.style.top = `${obj.y}px`;
                 }
                 else{
-                popup1.style.left = `${rect.x}px`;
-                popup1.style.top = `${rect.y}px`;
+                popup1.style.left = `${rect.left}px`;
+                popup1.style.top = `${rect.top}px`;
                 }
 
                 setTimeout(function(){
