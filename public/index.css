@@ -344,7 +344,7 @@ input[type=range]{
     appearance: none;
 }
 
-input[type=range],input[type=range]::-webkit-slider-thumb,input[type=range]::-webkit-slider-runnable-track{
+input[type=range],input[type=range]::-webkit-slider-thumb{
     -webkit-appearance: none;
 }
 
@@ -491,7 +491,7 @@ footer{
     }
 
     .opened.popup{
-        top: 40% !important;
+        top: 45% !important;
     }
 
     .popup_p1, .popup_img{
