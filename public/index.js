@@ -510,20 +510,25 @@
 
             let params = undefined;
             const svg = document.querySelector('svg');
-            const circle_events = ["pointerdown", "touchend"];
-            circle_events.forEach((event)=>{
+            const circle_tap = ["pointerdown", "touchstart"];
+            circle_tap.forEach((event)=>{
             svg.addEventListener(event, function(e) {
+                e.preventDefault();
                 const r = svg.getBoundingClientRect();
                 params = {
                     x: r.x + r.width / 2,
                     y: r.y + r.height / 2
                 }
             });
-        })
-            svg.addEventListener('pointermove', function(e) {
+        });
+            const circle_move = ["touchmove"];
+            circle_move.forEach((event)=>{
+
+            svg.addEventListener(event, function(e) {
+                e.preventDefault();
                 if (params) {
-                    const dx = e.clientX - params.x;
-                    const dy = e.clientY - params.y;
+                    const dx = e.changedTouches[0].clientX - params.x;
+                    const dy = e.changedTouches[0].clientY - params.y;
                     const a = Math.atan2(dy, dx);
                     // console.log(dx, dy, a);
                     const val = ((a / Math.PI * 180 - 120) + 360) % 360;
@@ -536,4 +541,5 @@
                     svg_temp.innerHTML = `+${Math.round(val2/2)}`;
                 }
                 });
+            });
         };
