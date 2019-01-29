@@ -470,7 +470,7 @@
 
             events.forEach(function(event){
             document.addEventListener(event, function(e){
-
+            e.preventDefault();
             const target = e.target;
 
             if(target === dev1 || target.parentNode === dev1){
@@ -480,8 +480,9 @@
                     for(let num in rect){
                         obj[num] = rect[num];
                     }
+                    JSON.stringify(obj);
                     popup1.style.left = `${obj.x}px`;
-                    popup1.style.top = `${obj.y}px`;    
+                    popup1.style.top = `${obj.y}px`;
                 }
                 else{
                 popup1.style.left = `${rect.x}px`;
