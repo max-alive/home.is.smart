@@ -352,7 +352,7 @@ input[type=range]::-moz-range-thumb,input[type=range]::-moz-range-track{
 }
 
 input[type=range]::-webkit-slider-runnable-track{
-    background-color: transparent;
+    height: 0;
 }
 
 footer{
