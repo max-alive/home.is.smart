@@ -345,15 +345,12 @@ svg{
 
 input[type=range],input[type=range]::-webkit-slider-thumb{
     -webkit-appearance: none;
+    border: none;
+    visibility: hidden;
+    height: 0;
 }
 
 input[type=range]::-moz-range-thumb,input[type=range]::-moz-range-track{
-    visibility: hidden;
-}
-
-input[type=range]::-webkit-slider-runnable-track{
-    height: 0;
-    border: none;
     visibility: hidden;
 }
 
