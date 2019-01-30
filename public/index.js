@@ -485,7 +485,7 @@
                     popup1.classList.add("opened");    
                 },100);    
                 },100);
-                document.body.style.overflow = 'hidden';
+                document.body.addEventListener('touchmove', e=> e.preventDefault(),{passive: false});
                 }
             else if(target.classList.contains("paranja")){
                 popup1.classList.remove("opened");
