@@ -1,4 +1,5 @@
-    window.onload = () =>{
+    window.addEventListener('load', () =>{
+
     "use strict";
     const logoimg = document.getElementsByClassName("logoimg");
     Array.prototype.forEach.call(logoimg, logoimgarg =>{
@@ -484,12 +485,14 @@
                     popup1.classList.add("opened");    
                 },100);    
                 },100);
+                document.body.style.overflow = 'hidden';
                 }
             else if(target.classList.contains("paranja")){
                 popup1.classList.remove("opened");
                 setTimeout(function(){
                     document.body.classList.remove("opened");
                 },1000);
+                document.body.style.overflow = '';
                 }
         });
     });
@@ -521,16 +524,13 @@
                 }
             });
         });
-            const circle_move = ["touchmove"];
-            circle_move.forEach((event)=>{
-
-            svg.addEventListener(event, function(e) {
-                e.preventDefault();
+            
+            svg.addEventListener('pointermove', function(e) {
                 if (params) {
-                    const dx = e.changedTouches[0].clientX - params.x;
-                    const dy = e.changedTouches[0].clientY - params.y;
+                    if(!windowsize640.matches){
+                    const dx = e.clientX - params.x;
+                    const dy = e.clientY - params.y;
                     const a = Math.atan2(dy, dx);
-                    // console.log(dx, dy, a);
                     const val = ((a / Math.PI * 180 - 120) + 360) % 360;
                     const val2 = val / 290 * 100;
                     updateValue(val2);
@@ -540,6 +540,22 @@
                     popup1_temp.innerHTML = `+${Math.round(val2/2)}`;
                     svg_temp.innerHTML = `+${Math.round(val2/2)}`;
                 }
+                }
                 });
-            });
-        };
+                    
+                svg.addEventListener('touchmove', function(e) {
+                    if (params) {
+                        const dx = e.changedTouches[0].clientX - params.x;
+                        const dy = e.changedTouches[0].clientY - params.y;
+                        const a = Math.atan2(dy, dx);
+                        const val = ((a / Math.PI * 180 - 120) + 360) % 360;
+                        const val2 = val / 290 * 100;
+                        updateValue(val2);
+                        const popup1_temp = document.querySelector(".popup_p1");
+                        const svg_temp = document.querySelector(".svg_temp");
+    
+                        popup1_temp.innerHTML = `+${Math.round(val2/2)}`;
+                        svg_temp.innerHTML = `+${Math.round(val2/2)}`;
+                    }
+                    });
+        });
