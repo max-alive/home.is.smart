@@ -353,6 +353,8 @@ input[type=range]::-moz-range-thumb,input[type=range]::-moz-range-track{
 
 input[type=range]::-webkit-slider-runnable-track{
     height: 0;
+    border: none;
+    visibility: hidden;
 }
 
 footer{
