@@ -485,17 +485,18 @@
                     popup1.classList.add("opened");    
                 },100);    
                 },100);
-                document.body.addEventListener('touchmove', e=> e.preventDefault(),{passive: false});
+                document.body.addEventListener('touchmove', passiveEvent, {passive: false});
                 }
             else if(target.classList.contains("paranja")){
                 popup1.classList.remove("opened");
                 setTimeout(function(){
                     document.body.classList.remove("opened");
                 },1000);
-                document.body.style.overflow = '';
+                document.body.removeEventListener('touchmove', passiveEvent, {passive: false});
                 }
         });
     });
+    const passiveEvent =  e=> e.preventDefault();
             var r = 70;                 // радиус
             var d = r * 2 * Math.PI;    // диаметр
             var len = d * 0.8;          // максимальная длина линии
