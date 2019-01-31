@@ -483,7 +483,7 @@
                 document.body.classList.add("opened");
                 setTimeout(function(){
                     popup1.classList.add("opened");
-                    document.body.addEventListener('touchmove', passiveEvent, {passive: false});
+                    // document.body.addEventListener('touchmove', passiveEvent, {passive: false});
                 },100);    
                 },100);
                 }
@@ -491,7 +491,7 @@
                 popup1.classList.remove("opened");
                 setTimeout(function(){
                     document.body.classList.remove("opened");
-                document.body.removeEventListener('touchmove', passiveEvent, {passive: false});
+                // document.body.removeEventListener('touchmove', passiveEvent, {passive: false});
                 },1000);
                 }
         });
