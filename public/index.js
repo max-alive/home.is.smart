@@ -465,14 +465,12 @@
 
         const popup1 = document.querySelectorAll(".popup")[0];
         const dev1 = document.querySelectorAll(".devs")[0];
-
+        const btn1 = document.querySelector('.btn_apply');
             
-            const events = ["click", "touchend"];
-
-            events.forEach(function(event){
-            document.addEventListener(event, function(e){
-            e.preventDefault();
-            const target = e.target;
+        ["click", "touchend"].forEach(function(event){
+        document.addEventListener(event, function(e){
+        const target = e.target;
+        e.preventDefault();
 
             if(target === dev1 || target.parentNode === dev1){
                 const rect = e.target.getBoundingClientRect();
@@ -483,19 +481,23 @@
                 document.body.classList.add("opened");
                 setTimeout(function(){
                     popup1.classList.add("opened");
+                    btn1.classList.add("opened");
                     document.body.addEventListener('touchmove', passiveEvent, {passive: false});
                 },100);    
-                },100);
-                }
-            else if(target.classList.contains("paranja")){
-                popup1.classList.remove("opened");
-                setTimeout(function(){
-                    document.body.classList.remove("opened");
-                document.body.removeEventListener('touchmove', passiveEvent, {passive: false});
-                },1000);
-                }
-        });
+            },100);
+        }
     });
+                btn1.addEventListener(event, ()=>{
+                if(popup1.classList.contains('opened')){
+                popup1.classList.remove("opened");
+                btn1.classList.remove("opened");
+                setTimeout(function(){
+                document.body.classList.remove("opened");
+                document.body.removeEventListener('touchmove', passiveEvent, {passive: false});
+            },1000);
+        }
+    });
+});
     const passiveEvent =  e=> e.preventDefault();
             var r = 70;                 // радиус
             var d = r * 2 * Math.PI;    // диаметр

@@ -353,6 +353,29 @@ input[type=range]::-moz-range-thumb,input[type=range]::-moz-range-track{
     visibility: hidden;
 }
 
+.btn_apply{
+    width: 700px;
+    height: 60px;
+    position: absolute;
+    transform-origin: left top;
+    transform: scale(.1);
+    opacity: 0;
+    background-color: #ffd93e;
+    border-radius: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    outline: none;
+    border: none;
+}
+
+.opened.btn_apply {
+    opacity: 1;
+    transform: translate(-50%,-50%) scale(1);
+    top: 83% !important;
+    left: 50% !important;
+    transition: all 1s ease-in 0s;
+    }
+
 footer{
     flex-basis: 25px;
 }
@@ -512,6 +535,15 @@ footer{
         position: absolute;
         top: 0;
         left: 0;
+    }
+
+    .btn_apply{
+        width: 340px;
+        height: 50px;
+    }
+
+    .btn_apply.opened{
+        top: 86% !important;
     }
 
 }
