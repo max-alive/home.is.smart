@@ -487,13 +487,13 @@
                 },100);    
                 },100);
                 }
-            else if(target.classList.contains("paranja")){
-                popup1.classList.remove("opened");
-                setTimeout(function(){
-                    document.body.classList.remove("opened");
-                document.body.removeEventListener('touchmove', passiveEvent, {passive: false});
-                },1000);
-                }
+            // else if(target.classList.contains("paranja")){
+            //     popup1.classList.remove("opened");
+            //     setTimeout(function(){
+            //         document.body.classList.remove("opened");
+            //     document.body.removeEventListener('touchmove', passiveEvent, {passive: false});
+            //     },1000);
+            //     }
         });
     });
     const passiveEvent =  e=> e.preventDefault();
