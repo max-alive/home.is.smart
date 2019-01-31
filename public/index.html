@@ -15,14 +15,15 @@
             <img src="../assets/imgs/headerimg.png" alt="SMART HOME"
                  class="logoimg" width="64">
             <div class="headerlist" id="headerlist">
-                <a href="#">Сводка</a>
-                <a href="#">Устройства</a>
+                <a href="#summary">Сводка</a>
+                <a href="#devices">Устройства</a>
                 <a href="#scenarios">Сценарии</a>
                 <a href="#" id="burger">
             <img src="../assets/imgs/icon_list_m.png" alt="BURGERKING" />
             </a></div>
         </header>
         <div class="container">
+            <a name="summary">
             <section class="info">
                 <h3 id="infoh">Главное</h3>
                 <div class="nestedcont">
@@ -56,8 +57,9 @@
                         <p id="airpurify">Xiaomi Mi Air Purifier 2S</p>
                         <p id="_20:00">Запланировано на 20:00.</p>
                     </div>
-                    </div>
-            </section>
+                </div>
+            </a>    
+        </section>
             <section class="scenarios">
                 <a name="scenarios">
                 <h3 id="favscenarios">Избранные сценарии</h3>
@@ -113,9 +115,10 @@
                 </a>
             </section>
         </div>
-        <div class="devmain">
-            <h3 id="devheading"> Избранные устройства </h3>
-            <ul id="devlist">
+<div class="devmain">
+    <a name="devices">
+        <h3 id="devheading"> Избранные устройства </h3>
+        <ul id="devlist">
                 <li class="devlist">
                 <img src="../assets/imgs/Icons/Arrow%20Right/M%20Copy@1x.png"
                 id="devarrow" alt="^" width="6"> Всё </li>
@@ -137,6 +140,7 @@
                 <div class="devs"></div>
                 <div class="devs"></div>
             </div>
+            </a>
         </div>
         <footer></footer>
     </div>
@@ -147,7 +151,7 @@
             <p class="popup_p2">Xiaomi Warm Floor</p>
             <p class="popup_p3">Включено</p>
             <div class="circle_wrap">
-            <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <svg width="200" height="200">
                     <defs>
                         <mask id="mask1">
                             <circle r="70" cx="100" cy="100" fill="none" stroke="white" stroke-width="30"

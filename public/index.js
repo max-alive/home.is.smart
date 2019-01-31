@@ -10,7 +10,6 @@
     const list = document.getElementById("headerlist");
     const burger = document.getElementById("burger");
     burger.addEventListener("click",()=>{
-
         if (list.className === "headerlist"){
             list.className += " adaptheader";
         }
@@ -466,17 +465,20 @@
         const popup1 = document.querySelectorAll(".popup")[0];
         const dev1 = document.querySelectorAll(".devs")[0];
         const btn1 = document.querySelector('.btn_apply');
-            
-        ["click", "touchend"].forEach(function(event){
-        document.addEventListener(event, function(e){
-        const target = e.target;
-        e.preventDefault();
-
+        
+        const clickEvent = (function() {
+            if ('ontouchstart' in document.documentElement === true)
+              return 'touchend';
+            else
+              return 'click';
+        })();
+        
+        document.body.addEventListener(clickEvent, function(e){
+            const target = e.target;
             if(target === dev1 || target.parentNode === dev1){
                 const rect = e.target.getBoundingClientRect();
                 popup1.style.left = `${rect.left}px`;
                 popup1.style.top = `${rect.top}px`;
-
                 setTimeout(function(){
                 document.body.classList.add("opened");
                 setTimeout(function(){
@@ -487,7 +489,7 @@
             },100);
         }
     });
-                btn1.addEventListener(event, ()=>{
+                btn1.addEventListener(clickEvent, ()=>{
                 if(popup1.classList.contains('opened')){
                 popup1.classList.remove("opened");
                 btn1.classList.remove("opened");
@@ -497,8 +499,8 @@
             },1000);
         }
     });
-});
     const passiveEvent =  e=> e.preventDefault();
+
             var r = 70;                 // радиус
             var d = r * 2 * Math.PI;    // диаметр
             var len = d * 0.8;          // максимальная длина линии
@@ -516,36 +518,45 @@
 
             let params = undefined;
             const svg = document.querySelector('svg');
-            const circle_tap = ["pointerdown", "touchstart"];
-            circle_tap.forEach((event)=>{
-            svg.addEventListener(event, function(e) {
-                e.preventDefault();
-                const r = svg.getBoundingClientRect();
-                params = {
-                    x: r.left + r.width / 2,
-                    y: r.top + r.height / 2
-                }
-            });
-        });
-            
-            svg.addEventListener('pointermove', function(e) {
-                if (params) {
-                    if(!windowsize640.matches){
-                    const dx = e.clientX - params.x;
-                    const dy = e.clientY - params.y;
-                    const a = Math.atan2(dy, dx);
-                    const val = ((a / Math.PI * 180 - 120) + 360) % 360;
-                    const val2 = val / 290 * 100;
-                    updateValue(val2);
-                    const popup1_temp = document.querySelector(".popup_p1");
-                    const svg_temp = document.querySelector(".svg_temp");
 
-                    popup1_temp.innerHTML = `+${Math.round(val2/2)}`;
-                    svg_temp.innerHTML = `+${Math.round(val2/2)}`;
-                }
-                }
-                });
+            const touchAndClickFunc = e =>
+                {
+                    e.preventDefault();
+                    const r = svg.getBoundingClientRect();
+                    params = {
+                        x: r.left + r.width / 2,
+                        y: r.top + r.height / 2
+                    }
+                };
+
+            ['click','touchstart'].forEach((event)=>{
+                
+            svg.addEventListener(event, touchAndClickFunc);
+        });
                     
+        const mouseMvFunc = e =>{
+            if (params) {
+                if(!windowsize640.matches){
+                const dx = e.clientX - params.x;
+                const dy = e.clientY - params.y;
+                const a = Math.atan2(dy, dx);
+                const val = ((a / Math.PI * 180 - 120) + 360) % 360;
+                const val2 = val / 290 * 100;
+                updateValue(val2);
+
+                const popup1_temp = document.querySelector(".popup_p1");
+                popup1_temp.innerHTML = `+${Math.round(val2/2)}`;
+                const svg_temp = document.querySelector(".svg_temp");
+                svg_temp.innerHTML = `+${Math.round(val2/2)}`;
+                svg.addEventListener('click', ()=> {
+                svg.removeEventListener('mousemove', mouseMvFunc);
+                svg.addEventListener('click', ()=> svg.addEventListener('mousemove', mouseMvFunc));   
+            });
+        }
+    }
+};
+                svg.addEventListener('mousemove', mouseMvFunc);
+                
                 svg.addEventListener('touchmove', function(e) {
                     if (params) {
                         const dx = e.changedTouches[0].clientX - params.x;
@@ -560,5 +571,5 @@
                         popup1_temp.innerHTML = `+${Math.round(val2/2)}`;
                         svg_temp.innerHTML = `+${Math.round(val2/2)}`;
                     }
-                    });
-        });
+                });
+            });
