@@ -472,13 +472,13 @@ window.addEventListener('load', () => {
     const btn1 = document.querySelector('.btn_apply');
 
     const clickEvent = (function () {
-        if ('ontouchstart' in document.documentElement === true)
-            return 'touchstart';
+        if ('ontouchend' in document.documentElement === true)
+            return 'touchend';
         else
             return 'click';
     })();
 
-    document.body.addEventListener('touchstart', function (e) {
+    document.body.addEventListener(clickEvent, function (e) {
         const target = e.target;
         if (target === dev1 || target.parentNode === dev1) {
             const rect = e.target.getBoundingClientRect();
