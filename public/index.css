@@ -518,8 +518,9 @@ footer{
         margin-top: 15px;
     }
 
-    .devs{
-        pointer-events: none;
+    .devs:hover{
+        background-color: unset;
+        box-shadow: unset;
     }
 
     footer{
