@@ -478,7 +478,7 @@ window.addEventListener('load', () => {
             return 'click';
     })();
 
-    document.body.addEventListener(clickEvent, function (e) {
+    document.body.addEventListener('touchstart', function (e) {
         const target = e.target;
         if (target === dev1 || target.parentNode === dev1) {
             const rect = e.target.getBoundingClientRect();
