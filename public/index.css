@@ -515,6 +515,11 @@ footer{
     div.devs_wrap {
         float: left;
         clear: both;
+        margin-top: 15px;
+    }
+
+    .devs{
+        pointer-events: none;
     }
 
     footer{
