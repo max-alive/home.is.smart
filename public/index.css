@@ -486,12 +486,10 @@ footer{
     }
 
     div.favscenarios:hover,
-    div.favouritedev:hover,
-    div.devs:hover{
+    div.favouritedev:hover {
         background-color: #f7f7f7;
         box-shadow: unset;
     }
-
     header{
         padding-bottom: 3px;
     }
