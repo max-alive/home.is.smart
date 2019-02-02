@@ -472,8 +472,8 @@ window.addEventListener('load', () => {
     const btn1 = document.querySelector('.btn_apply');
 
     const clickEvent = (function () {
-        if ('ontouchend' in document.documentElement === true)
-            return 'touchend';
+        if ('ontouchstart' in document.documentElement === true)
+            return 'touchstart';
         else
             return 'click';
     })();
