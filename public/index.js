@@ -493,7 +493,7 @@ window.addEventListener('load', () => {
                 }, 100);
             }, 100);
         }
-    });
+    },true);
     btn1.addEventListener(clickEvent, () => {
         if (popup1.classList.contains('opened')) {
             popup1.classList.remove("opened");
