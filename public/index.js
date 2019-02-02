@@ -481,7 +481,7 @@ window.addEventListener('load', () => {
     document.body.addEventListener(clickEvent, function (e) {
         const target = e.target;
         if (target === dev1 || target.parentNode === dev1) {
-            const rect = e.target.getBoundingClientRect();
+            const rect = target.getBoundingClientRect();
             popup1.style.left = `${rect.left}px`;
             popup1.style.top = `${rect.top}px`;
             setTimeout(function () {
