@@ -1,148 +1,170 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="index.css">
     <script src="index.js"></script>
-    <title> Ум и Дом </title>
-    <link rel="icon" href="../assets/imgs/logoimg.png" type="image/png" sizes="16x16">
+    <title> Домный Ум </title>
+    <link rel="icon" href="../assets/imgs/logoimg.png" type="image/png">
 </head>
+
 <body>
     <div class="wrapall">
         <header>
-            <img src="../assets/imgs/headerimg.png" alt="SMART HOME"
-                 class="logoimg" width="64">
+            <img src="../assets/imgs/headerimg.png" alt="SMART HOME" class="logoimg" width="64">
             <div class="headerlist" id="headerlist">
                 <a href="#summary">Сводка</a>
                 <a href="#devices">Устройства</a>
                 <a href="#scenarios">Сценарии</a>
                 <a href="#" id="burger">
-            <img src="../assets/imgs/icon_list_m.png" alt="BURGERKING" />
-            </a></div>
+                    <img src="../assets/imgs/icon_list_m.png" alt="BURGERKING" />
+                </a></div>
         </header>
         <div class="container">
             <a name="summary">
-            <section class="info">
-                <h3 id="infoh">Главное</h3>
-                <div class="nestedcont">
-                <img src="../assets/imgs/bg@1x.png" id="infoimg" alt="SMART_HOME_BG" height="331"/>
-                <p id="hellotou">ПРИВЕТ, ХОЗЯИН!</p>
-                    <p id="isdooropened">Двери и окна закрыты, сигнализация включена.</p>
-                    <p id="athome">Дома</p>
-                    <p id="outside">За окном</p>
-                    <p class="home_temp">+23</p>
-                    <p id="_19">+19</p>
-                    <img src="../assets/imgs/cloud-drizzle.png" id="cloudcry" alt="CLOUDS_CRY">
-                    <div class="smallpanel" id="smallpaneltemp">
-                        <img src="../assets/imgs/icon_temperature@1x.png" alt="Thermometer">
-                        <p id="philcool">Philips Cooler</p>
-                        <p id="_16:30">Начнёт охлаждать в 16:30</p>
+                <section class="info">
+                    <h3 id="infoh">Главное</h3>
+                    <div class="nestedcont">
+                        <img src="../assets/imgs/bg@1x.png" id="infoimg" alt="SMART_HOME_BG" height="331" />
+                        <p id="hellotou">ПРИВЕТ, ХОЗЯИН!</p>
+                        <p id="isdooropened">Двери и окна закрыты, сигнализация включена.</p>
+                        <p id="athome">Дома</p>
+                        <p id="outside">За окном</p>
+                        <p class="home_temp">+23</p>
+                        <p id="_19">+19</p>
+                        <img src="../assets/imgs/cloud-drizzle.png" id="cloudcry" alt="CLOUDS_CRY">
+                        <div class="smallpanel" id="smallpaneltemp">
+                            <img src="../assets/imgs/icon_temperature@1x.png" alt="Thermometer">
+                            <p id="philcool">Philips Cooler</p>
+                            <p id="_16:30">Начнёт охлаждать в 16:30</p>
+                        </div>
+                        <div class="smallpanel" id="smallpanellight">
+                            <img src="../assets/imgs/icon_sun@1x.png" alt="Sunny">
+                            <p id="xiaomi">Xiaomi Yeelight LED Smart Bulb</p>
+                            <p id="_17:00">Включится в 17:00.</p>
+                        </div>
+                        <div class="smallpanel" id="smallpanelcam">
+                            <img src="../assets/imgs/icons8-wall-mount-camera-32.png" id="bulletcam" width="24" alt="Say cheese">
+                            <p id="dlink">D-Link Omna <br /> 180 Cam</p>
+                            <p id="_18:30">Запись начнётся в 18:30.</p>
+                        </div>
+                        <div class="smallpanel" id="smallpanelair">
+                            <img src="../assets/imgs/icons8-air-32.png" width="24" alt="Fresh air">
+                            <p id="airpurify">Xiaomi Mi Air Purifier 2S</p>
+                            <p id="_20:00">Запланировано на 20:00.</p>
+                        </div>
                     </div>
-                    <div class="smallpanel" id="smallpanellight">
-                        <img src="../assets/imgs/icon_sun@1x.png" alt="Sunny">
-                        <p id="xiaomi">Xiaomi Yeelight LED Smart Bulb</p>
-                        <p id="_17:00">Включится в 17:00.</p>
-                    </div>
-                    <div class="smallpanel" id="smallpanelcam">
-                        <img src="../assets/imgs/icons8-wall-mount-camera-32.png"
-                             id="bulletcam" width="24" alt="Say cheese">
-                        <p id="dlink">D-Link Omna <br /> 180 Cam</p>
-                        <p id="_18:30">Запись начнётся в 18:30.</p>
-                    </div>
-                    <div class="smallpanel" id="smallpanelair">
-                        <img src="../assets/imgs/icons8-air-32.png"
-                            width="24" alt="Fresh air">
-                        <p id="airpurify">Xiaomi Mi Air Purifier 2S</p>
-                        <p id="_20:00">Запланировано на 20:00.</p>
-                    </div>
-                </div>
-            </a>    
-        </section>
+            </a>
+            </section>
             <section class="scenarios">
                 <a name="scenarios">
-                <h3 id="favscenarios">Избранные сценарии</h3>
-                <div id="nestedscenarios">
-                <div class="favscenarios">
-                    <img src="../assets/imgs/icon_sun_2@1x.png" alt="Солнышко">
-                    <p class="favscenariostext">Выключить весь свет в доме и во дворе.</p>
-                </div>
-                <div class="favscenarios">
-                    <img src="../assets/imgs/icon_scheduled@1x.png" alt="Часики">
-                    </br>
-                    <p class="favscenariostext">Пора вставать!</br>8 утра!</p>
-                </div>
-                <div class="favscenarios">
-                    <img src="../assets/imgs/icon_sun_2@1x.png" alt="Солнышко">
-                    <p class="favscenariostext">Включить свет в коридоре.</p>
-                </div>
-                <div class="favscenarios">
-                    <img src="../assets/imgs/icon_temperature_2@1x.png" alt="Градусник">
-                    <p class="favscenariostext">Набрать горячую ванну.</p>
-                    <p class="favscenariosubtext">Начнётся в 18:00.</p>
-                </div>
-                <div class="favscenarios">
-                    <img src="../assets/imgs/icon_temperature_2@1x.png" alt="Градусник">
-                    <p class="favscenariostext">Сделать пол тёплым</br>во всей квартире.</p>
-                </div>
-                <div class="favscenarios">
-                    <img src="../assets/imgs/icons8-air-32.png" alt="Ветерок" width="24">
-                    <p class="favscenariostext">Проветрить спальню.</p>
-                </div>
-                <div class="favscenarios">
-                    <img src="../assets/imgs/breathable.png" alt="Караоке!">
-                    <p class="favscenariostext">Петь караоке.</p>
-                </div>
-                <div class="favscenarios">
-                    <img src="../assets/imgs/guitar.png" alt="Релакс!">
-                    <p class="favscenariostext">Проиграть релакс.<br/>музыку.</p>
-                </div>
-                <div class="favscenarios">
-                    <img src="../assets/imgs/icon.png" alt="Курочка">
-                    <p class="favscenariostext">Включить духовку.</p>
+                    <h3 id="favscenarios">Избранные сценарии</h3>
+                    <div id="nestedscenarios">
+                        <div class="favscenarios">
+                            <img src="../assets/imgs/icon_sun_2@1x.png" alt="Солнышко">
+                            <p class="favscenariostext">Выключить весь свет в доме и во дворе.</p>
+                        </div>
+                        <div class="favscenarios">
+                            <img src="../assets/imgs/icon_scheduled@1x.png" alt="Часики">
+                            <p class="favscenariostext">Пора вставать!<br>8 утра!</p>
+                        </div>
+                        <div class="favscenarios">
+                            <img src="../assets/imgs/icon_sun_2@1x.png" alt="Солнышко">
+                            <p class="favscenariostext">Включить свет в коридоре.</p>
+                        </div>
+                        <div class="favscenarios">
+                            <img src="../assets/imgs/icon_temperature_2@1x.png" alt="Градусник">
+                            <p class="favscenariostext">Набрать горячую ванну.</p>
+                            <p class="favscenariosubtext">Начнётся в 18:00.</p>
+                        </div>
+                        <div class="favscenarios">
+                            <img src="../assets/imgs/icon_temperature_2@1x.png" alt="Градусник">
+                            <p class="favscenariostext">Сделать пол тёплым<br>во всей квартире.</p>
+                        </div>
+                        <div class="favscenarios">
+                            <img src="../assets/imgs/icons8-air-32.png" alt="Ветерок" width="24">
+                            <p class="favscenariostext">Проветрить спальню.</p>
+                        </div>
+                        <div class="favscenarios">
+                            <img src="../assets/imgs/breathable.png" alt="Караоке!">
+                            <p class="favscenariostext">Петь караоке.</p>
+                        </div>
+                        <div class="favscenarios">
+                            <img src="../assets/imgs/guitar.png" alt="Релакс!">
+                            <p class="favscenariostext">Проиграть релакс.<br />музыку.</p>
+                        </div>
+                        <div class="favscenarios">
+                            <img src="../assets/imgs/icon.png" alt="Курочка">
+                            <p class="favscenariostext">Включить духовку.</p>
+                        </div>
+                        <div class="favscenarios">
+                            <img src="../assets/imgs/soccer-ball-variant.png" alt="...">
+                            <p class="favscenariostext">Смотреть футбол.</p>
+                            <p class="favscenariosubtext">Матч в 22:00.</p>
+                        </div>
                     </div>
-                <div class="favscenarios">
-                    <img src="../assets/imgs/soccer-ball-variant.png" alt="...">
-                    <p class="favscenariostext">Смотреть футбол.</p>
-                    <p class="favscenariosubtext">Матч в 22:00.</p>
-                </div>
-                </div>
-                <img src="../assets/imgs/Icons/arrow-left.svg"
-                     id="leftarrow" alt="Лефт!"/>
-                <img src="../assets/imgs/Icons/Arrow%20Right/M%20Copy@1x.png"
-                     id="rightarrow" alt="Райт!!"/>
+                    <img src="../assets/imgs/Icons/arrow-left.svg" id="leftarrow" alt="Лефт!" />
+                    <img src="../assets/imgs/Icons/Arrow%20Right/M%20Copy@1x.png" id="rightarrow" alt="Райт!!" />
                 </a>
             </section>
         </div>
-<div class="devmain">
-    <a name="devices">
-        <h3 id="devheading"> Избранные устройства </h3>
-        <ul id="devlist">
-                <li class="devlist">
-                <img src="../assets/imgs/Icons/Arrow%20Right/M%20Copy@1x.png"
-                id="devarrow" alt="^" width="6"> Всё </li>
-                <li class="devlist"> Кухня </li>
-                <li class="devlist"> Зал </li>
-                <li class="devlist"> Лампочки </li>
-                <li class="devlist"> Камеры </li>
-            </ul>
-            <div class="devs_wrap">
-            <div class="devs">
-                <img src="../assets/imgs/icon_temperature_2@1x.png" alt="No image">
-                <p class="devs_p1"> Xiaomi Warm Floor </p>
-                <p class="devs_p2"> Включено </p>
-            </div>
-                <div class="devs"></div>
-                <div class="devs"></div>
-                <div class="devs"></div>
-                <div class="devs"></div>
-                <div class="devs"></div>
-                <div class="devs"></div>
-            </div>
+        <div class="devmain">
+            <a name="devices">
+                <h3 id="devheading"> Избранные устройства </h3>
+                <ul id="devlist">
+                    <li class="devlist">
+                        <img src="../assets/imgs/Icons/Arrow%20Right/M%20Copy@1x.png" id="devarrow" alt="^" width="6">
+                        Всё </li>
+                    <li class="devlist"> Кухня </li>
+                    <li class="devlist"> Зал </li>
+                    <li class="devlist"> Лампочки </li>
+                    <li class="devlist"> Камеры </li>
+                </ul>
+                <div class="devs_wrap">
+                    <div class="devs">
+                        <img src="../assets/imgs/icon_temperature_2@1x.png" alt="No image">
+                        <p class="devs_p1"> <br> Xiaomi Warm Floor </p>
+                        <p class="devs_p2"> Включено </p>
+                    </div>
+                    <div class="devs">
+                        <img src="../assets/imgs/icon_sun_2@1x.png" alt="No image">
+                        <p class="devs_p1"> Xiaomi Yeelight LED Smart Bulb </p>
+                        <p class="devs_p2"> Включено </p>
+                    </div>
+                    <div class="devs">
+                        <img src="../assets/imgs/icon_sun@1x.png" alt="No image">
+                        <p class="devs_p1"> <br> D-Link Omna 180 Cam </p>
+                        <p class="devs_p2"> Включится в 17:00 </p>
+                    </div>
+                    <div class="devs">
+                        <img src="../assets/imgs/icon_temperature@1x.png" alt="No image">
+                        <p class="devs_p1"> Elgato Eve Degree Connected </p>
+                        <p class="devs_p2"> Выключено до 17:00 </p>
+                    </div>
+                    <div class="devs">
+                        <img src="../assets/imgs/icon_sun@1x.png" alt="No image">
+                        <p class="devs_p1"> LIFX Mini Day & Dusk A60 E27 </p>
+                        <p class="devs_p2"> Включится в 17:00 </p>
+                    </div>
+                    <div class="devs">
+                        <img src="../assets/imgs/icon_sun_2@1x.png" alt="No image">
+                        <p class="devs_p1"> <br> Xiaomi Mi Air Purifier 2S </p>
+                        <p class="devs_p2"> Включено </p>
+                    </div>
+                    <div class="devs">
+                        <img src="../assets/imgs/icon_sun@1x.png" alt="No image">
+                        <p class="devs_p1"> <br> Philips Zhirui </p>
+                        <p class="devs_p2"> Выключено </p>
+                    </div>
+                </div>
             </a>
         </div>
-        <footer></footer>
+        <footer>
+            <p class='footer_p1'> Автор https://vk.com/maxaliev85 &copy;</p>
+        </footer>
     </div>
     <div class="paranja">
         <div class="popup">
@@ -151,29 +173,29 @@
             <p class="popup_p2">Xiaomi Warm Floor</p>
             <p class="popup_p3">Включено</p>
             <div class="circle_wrap">
-            <svg width="200" height="200">
+                <svg width="200" height="200">
                     <defs>
                         <mask id="mask1">
                             <circle r="70" cx="100" cy="100" fill="none" stroke="white" stroke-width="30"
-                                stroke-dasharray="1 7" stroke-dashoffset="-154"></circle>    
+                                stroke-dasharray="1 7" stroke-dashoffset="-154"></circle>
                         </mask>
                     </defs>
-                    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" 
-                    class="svg_temp" font-size="40" font-weight="bold">+23</text>
-                    <g  mask="url(#mask1)">
-                        <circle 
-                            r="70" cx="100" cy="100" fill="none" stroke="#ccc" stroke-width="30"
-                            stroke-dashoffset="-154" stroke-dasharray="352 88"></circle>
-                        <circle id="bar" r="70" cx="100" cy="100" fill="none" stroke="orange" stroke-width="50" 
+                    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" class="svg_temp" font-size="40"
+                        font-weight="bold">+23</text>
+                    <g mask="url(#mask1)">
+                        <circle r="70" cx="100" cy="100" fill="none" stroke="#ccc" stroke-width="30" stroke-dashoffset="-154"
+                            stroke-dasharray="352 88"></circle>
+                        <circle id="bar" r="70" cx="100" cy="100" fill="none" stroke="orange" stroke-width="50"
                             stroke-dashoffset="-154"></circle>
                     </g>
                 </svg>
-                    <input id="input" type="range" min="0" max="120" value="47" />
-                </div>
+                <input id="input" type="range" min="0" max="120" value="47" />
+            </div>
         </div>
         <button class='btn_apply'>Применить</button>
         <div class="popup"></div>
         <div class="popup"></div>
     </div>
 </body>
+
 </html>

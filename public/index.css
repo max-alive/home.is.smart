@@ -18,7 +18,7 @@ body,
 .container{
     display: flex;
     flex-direction: row;
-    flex: 1 0 auto;
+    flex-grow: 1;
 }
 .info,
 .scenarios{
@@ -212,7 +212,7 @@ img#rightarrow{
 }
 
 h3#devheading {
-    margin: 20px 0 0 2%;
+    margin: 0 0 0 2%;
     float: left;
     padding-right: 10px;
 }
@@ -220,7 +220,7 @@ li.devlist{
     display: inline-block;
     font-size: 13px;
     font-weight: bold;
-    margin: 18px 0 0 10px;
+    margin-left: 10px;
     vertical-align: top;
     background-color: #f7f7f7;
     padding: 5px 10px;
@@ -236,6 +236,7 @@ ul#devlist{
 img#devarrow{
     display: none;
 }
+
 div.devs_wrap{
     margin: 20px 0 0 2%;
     font-size: 0;
@@ -261,9 +262,13 @@ div.devs:hover{
 p.devs_p1{
     font-size: 14px;
     font-weight: 600;
+    white-space: normal;
+    margin-top: 0.5em;
 }
 p.devs_p2{
     font-size: 12px;
+    margin-top: -0.5em;
+    color: #858585;
 }
 
 .paranja{
@@ -377,7 +382,10 @@ input[type=range]::-moz-range-thumb,input[type=range]::-moz-range-track{
     }
 
 footer{
-    flex-basis: 25px;
+    display: flex;
+    justify-content: flex-end;
+    flex-basis: 35px;
+    align-items: center;
 }
 
 @media (max-width: 1210px) {
@@ -498,7 +506,8 @@ footer{
         margin: 3px 0 0 5px;
         filter: brightness(0%);
     }
-    div.devmain{
+
+    .devmain{
         overflow: hidden;
     }
 
@@ -545,10 +554,4 @@ footer{
         top: 90% !important;
     }
 
-}
-@media (max-width: 300px){
-    li.devlist{
-        float: left;
-        margin-left: 2%;
-    }
 }
