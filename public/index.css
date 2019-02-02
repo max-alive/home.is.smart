@@ -508,12 +508,17 @@ footer{
     }
 
     .devmain{
+        margin-top: 20px;
         overflow: hidden;
     }
-
+    
     div.devs_wrap {
         float: left;
         clear: both;
+    }
+
+    footer{
+        justify-content: center;
     }
 
     .popup{
