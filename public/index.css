@@ -484,11 +484,14 @@ footer{
     h3#favscenarios{
         margin-left: 2%;
     }
+
     div.favscenarios:hover,
-    div.favouritedev:hover{
+    div.favouritedev:hover,
+    div.devs:hover{
         background-color: #f7f7f7;
         box-shadow: unset;
     }
+
     header{
         padding-bottom: 3px;
     }
@@ -516,11 +519,6 @@ footer{
         float: left;
         clear: both;
         margin-top: 15px;
-    }
-
-    .devs:hover{
-        background-color: unset;
-        box-shadow: unset;
     }
 
     footer{
