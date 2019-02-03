@@ -399,6 +399,12 @@ footer{
     #smallpanelair {
         top: 200px !important;
     }
+
+    .devmain{
+        flex-grow: 1;
+        overflow: hidden;
+    }
+    
 }
 @media (max-width: 640px) {
     div.wrapall{
@@ -512,9 +518,8 @@ footer{
 
     .devmain{
         margin-top: 20px;
-        overflow: hidden;
     }
-    
+
     div.devs_wrap {
         float: left;
         clear: both;
