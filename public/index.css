@@ -404,7 +404,10 @@ footer{
         flex-grow: 1;
         overflow: hidden;
     }
-    
+
+    footer{
+        display: none;
+    }
 }
 @media (max-width: 640px) {
     div.wrapall{
@@ -527,6 +530,7 @@ footer{
     }
 
     footer{
+        display: flex;
         justify-content: center;
     }
 
