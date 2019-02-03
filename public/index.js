@@ -519,7 +519,7 @@ window.addEventListener('load', () => {
     }
 
     updateValue();
-    input.addEventListener('change', updateValue);
+    // input.addEventListener('change', updateValue);
 
     let params = undefined;
     const svg = document.querySelector('svg');
