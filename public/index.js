@@ -3,8 +3,8 @@
     'use strict';
 
     const logoimg = document.getElementsByClassName("logoimg");
-        Array.prototype.forEach.call(logoimg, () => {
-            this.addEventListener("click", () => {
+        Array.prototype.forEach.call(logoimg, param => {
+            param.addEventListener("click", () => {
                 window.location.reload()
             })
         });
