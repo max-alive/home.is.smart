@@ -1,22 +1,22 @@
-window.addEventListener('load', () => {
+    window.addEventListener('load', () => { 
 
-    "use strict";
+    'use strict';
+
     const logoimg = document.getElementsByClassName("logoimg");
-    Array.prototype.forEach.call(logoimg, logoimgarg => {
-        logoimgarg.addEventListener("click", () => {
-            window.location.reload();
-        })
+        Array.prototype.forEach.call(logoimg, () => {
+            this.addEventListener("click", () => {
+                window.location.reload()
+            })
+        });
+
+    const navBar = document.getElementById("headerlist");
+    const menuBtn = document.getElementById("burger");
+
+    menuBtn.addEventListener('click', () => {
+        if (navBar.classList.contains('adaptheader')) navBar.classList.add('adaptheader');
+        else navBar.classList.toggle('adaptheader');
     });
-    const list = document.getElementById("headerlist");
-    const burger = document.getElementById("burger");
-    burger.addEventListener("click", () => {
-        if (list.className === "headerlist") {
-            list.className += " adaptheader";
-        }
-        else {
-            list.className = "headerlist";
-        }
-    });
+
     const temp = document.getElementById("smallpaneltemp");
     const light = document.getElementById("smallpanellight");
     const cam = document.getElementById("smallpanelcam");
